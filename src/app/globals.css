@@ -4,30 +4,44 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 243, 249, 248;
+  --glow: 6, 182, 212;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .navOption {
+    @apply relative transition-colors duration-200 hover:text-cyan-400 py-2;
+  }
+
+  .navOption::after {
+    @apply content-['']  left-0 bottom-[15%] bg-cyan-400 h-[2px] w-[0%] absolute transition-all duration-200 border-0 rounded   shadow-cyan-400;
+  }
+
+  .navOption::after:hover {
+    @apply w-[100%];
+  }
+
+  .partialUnder::after {
+    @apply rounded-md absolute content-['']  left-0 bottom-[0%] bg-gradient-to-r from-cyan-600/80 to-transparent h-[5px] w-[20%];
+  }
+
+  .nameMain {
+    @apply relative text-transparent bg-clip-text font-medium md:text-3xl text-xl bg-gradient-to-r from-purple-600 to-teal-500 w-fit;
   }
 }

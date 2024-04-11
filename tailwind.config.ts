@@ -16,6 +16,17 @@ const config: Config = {
       transitionProperty: {
         multiple: "width , height , backgroundColor , border-radius",
       },
+      keyframes: {
+        colourWave: {
+          to: {
+            backgroundPosition:
+              "linear-gradient(90deg,rgba(147, 51, 234,1)0%, rgba(8,145, 178,1) 40%, rgba(20,184,166,1) 100%)",
+          },
+        },
+      },
+      animation: {
+        colourWave: "colourWave 3s linear infinite",
+      },
     },
   },
   plugins: [],

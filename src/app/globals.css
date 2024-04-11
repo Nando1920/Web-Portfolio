@@ -8,12 +8,12 @@
   --glow: 6, 182, 212;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-rgb: 0, 0, 0;
   }
-} */
+}
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -38,10 +38,26 @@ body {
   }
 
   .partialUnder::after {
-    @apply rounded-md absolute content-['']  left-0 bottom-[0%] bg-gradient-to-r from-cyan-600/80 to-transparent h-[5px] w-[20%];
+    @apply rounded-md absolute content-['']  left-0 bottom-[0%] bg-gradient-to-r from-cyan-600/80 to-transparent h-[5px] w-[16%];
   }
+  @media (prefers-reduced-motion: no-preference) {
+    .nameMain {
+      background: linear-gradient(
+          90deg,
+          rgba(147, 51, 234, 1),
+          rgba(20, 184, 166, 1),
+          rgba(147, 51, 234, 1)
+        )
+        0 0 / 400% 100%;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: move-bg 8s infinite linear;
+    }
 
-  .nameMain {
-    @apply relative text-transparent bg-clip-text font-medium md:text-3xl text-xl bg-gradient-to-r from-purple-600 to-teal-500 w-fit;
+    @keyframes move-bg {
+      to {
+        background-position: 400% 0;
+      }
+    }
   }
 }

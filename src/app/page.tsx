@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <Navbar />
       <ScrollWrapper>
-        <div className="p-4 sm:px-10 lg:px-16 xl:p-48 flex flex-col h-screen">
+        <div className="p-4 sm:px-10 lg:px-16 xl:py-48 flex flex-col h-fit">
           <WelcomeSection />
         </div>
       </ScrollWrapper>

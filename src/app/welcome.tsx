@@ -2,7 +2,7 @@ import "./globals.css";
 
 export default function WelcomeSection() {
   return (
-    <section className="flex flex-col gap-[16px]">
+    <section className="flex flex-col gap-[16px] pt-24">
       <div className="text-xl">
         Hello there, I'm <span className="nameMain font-bold">Fernando</span>{" "}
       </div>
@@ -11,10 +11,10 @@ export default function WelcomeSection() {
         <div className=" text-right">Developer</div>
       </div>
       <div className="flex flex-row gap-6">
-        <button className=" hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl p-4 bg-cyan-300 w-38 text-white">
+        <button className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl px-4 sm:p-4 bg-cyan-300 sm:w-38 text-white">
           Download CV
         </button>
-        <button className="text-cyan-300 rounded-3xl border-4 bg-gradient-linear from-red-700 to-yellow-600 border-cyan-300 p-4 w-38 hover:shadow-inner">
+        <button className="text-sm text-cyan-300 rounded-3xl border-4 bg-gradient-linear from-red-700 to-yellow-600 border-cyan-300 p-4 w-38 hover:shadow-inner">
           Get in touch
         </button>
       </div>

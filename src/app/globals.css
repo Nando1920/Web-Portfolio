@@ -24,48 +24,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-
-  .burger {
-    @apply text-cyan-500 font-medium;
-  }
-
-  .cross {
-    @apply text-white font-medium;
-  }
-
-  .navOption {
-    @apply text-sm relative transition-colors duration-200 hover:text-cyan-400 py-2;
-  }
-
-  .navOption::after {
-    @apply content-['']  left-0 bottom-[15%] bg-cyan-400 h-[2px] w-[0%] absolute transition-all duration-200 border-0 rounded   shadow-cyan-400;
-  }
-
-  .navOption::after:hover {
-    @apply w-[100%];
-  }
-
-  .partialUnder::after {
-    @apply rounded-md absolute content-['']  left-0 bottom-[0%] bg-gradient-to-r from-cyan-600/80 to-transparent h-[5px] w-[16%];
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .nameMain {
-      background: linear-gradient(
-          90deg,
-          rgba(147, 51, 234, 1),
-          rgba(20, 184, 166, 1),
-          rgba(147, 51, 234, 1)
-        )
-        0 0 / 400% 100%;
-      color: transparent;
-      -webkit-background-clip: text;
-      animation: move-bg 8s infinite linear;
-    }
-
-    @keyframes move-bg {
-      to {
-        background-position: 400% 0;
-      }
-    }
-  }
 }

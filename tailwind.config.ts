@@ -17,15 +17,19 @@ const config: Config = {
         multiple: "width , height , backgroundColor , border-radius",
       },
       keyframes: {
-        colourWave: {
-          to: {
-            backgroundPosition:
-              "linear-gradient(90deg,rgba(147, 51, 234,1)0%, rgba(8,145, 178,1) 40%, rgba(20,184,166,1) 100%)",
+        bouncing: {
+          "0%": {},
+
+          "50%": {
+            transform: "translateY(10px) scale(1.6) scalex(2)",
+          },
+          "100%": {
+            transform: "translateY(0) scale(2.5) scalex(2)",
           },
         },
       },
       animation: {
-        colourWave: "colourWave 3s linear infinite",
+        bounce: "bouncing 4s ease infinite",
       },
     },
   },

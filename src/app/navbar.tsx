@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
-import "./globals.css";
-import { atTop } from "./scrollWrapper";
+import "./styles/navbar.css";
+import { atTop, progress } from "./scrollWrapper";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [isAtTop, setIsAtTop] = useState(atTop.value);
   const [hidden, setHidden] = useState(true);
-  const [buttonClass, setButtonClass] = useState("burger");
+  const [buttonClass, setButtonClass] = useState("bar unclicked");
 
   const navArray: any[] = [
     { name: "Projects", ref: "/home" },
@@ -26,14 +26,16 @@ export default function Navbar() {
   const burgerButton = () => {
     return (
       <div
-        className={`sm:hidden left-4 top-4 fixed z-50 text-red-500 ${buttonClass}`}
+        className="sm:hidden left-4 top-[3%] fixed z-50 text-red-500 flex flex-col gap-[4px]"
         onClick={() => {
           setButtonClass((curr) => {
-            return curr === "burger" ? "cross" : "burger";
+            return curr.includes("unclicked") ? "bar clicked" : "bar unclicked";
           });
           setHidden(!hidden);
         }}>
-        <p>{hidden ? "Menu" : "X"}</p>
+        <div className={`${buttonClass}`} />
+        <div className={`${buttonClass}`} />
+        <div className={`${buttonClass}`} />
       </div>
     );
   };
@@ -41,16 +43,16 @@ export default function Navbar() {
   const horizontalPanel = () => {
     return (
       <div
-        className={`sm:hidden bg-cyan-300/90 ${
-          hidden ? "w-0" : "w-32"
-        } h-[100vh] fixed z-40 transition-all duration-300 overflow-hidden`}>
-        <div className="px-4 h-[10em] flex flex-col gap-4 w-[100%] justify-end  ">
+        className={`sm:hidden bg-cyan-600/90 ${
+          hidden ? "w-0" : "w-36 "
+        } h-[100vh] fixed z-40 transition-all duration-100 overflow-hidden`}>
+        <div className="px-4 pt-[15vh] h-[100%] flex flex-col gap-4 justify-start  ">
           {navArray.map((item) => {
             return (
               <Link
                 href={item.ref}
                 key={item.name}
-                className={`text-white w-fit overflow-hidden`}
+                className={`text-white text-nowrap text-lg min-w-fit overflow-hidden`}
                 onClick={() => {
                   setHidden(true);
                   setButtonClass("burger");
@@ -68,7 +70,7 @@ export default function Navbar() {
     <>
       {burgerButton()}
       <nav
-        className={`flex justify-end sm:justify-between  items-center lg:px-12 sm:px-8 px-4 py-5 ${
+        className={`flex justify-end sm:justify-between  items-center lg:px-12 sm:px-8 px-4 py-4 ${
           !isAtTop
             ? "shadow-lg shadow-black-100 bg-white/80 "
             : "bg-transparent"

@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .navOption {
+    @apply text-sm relative transition-colors duration-200 hover:text-cyan-400 py-2;
+  }
+
+  .navOption::after {
+    @apply content-['']  left-0 bottom-[15%] bg-cyan-400 h-[2px] w-[0%] absolute transition-all duration-200 border-0 rounded   shadow-cyan-400;
+  }
+
+  .navOption::after:hover {
+    @apply w-[100%];
+  }
+
+  .bar {
+    @apply h-[3px] w-6 bg-cyan-500 rounded-2xl transition-all duration-300;
+  }
+
+  .bar.bar.clicked {
+    @apply bg-white;
+  }
+
+  .bar.clicked:nth-child(1) {
+    @apply rotate-45 translate-y-[7px] -translate-x-0 scale-75;
+  }
+
+  .bar.clicked:nth-child(2) {
+    @apply scale-0;
+  }
+
+  .bar.clicked:nth-child(3) {
+    @apply -rotate-45 -translate-y-[7px] -translate-x-0  scale-75;
+  }
+}

@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .partialUnder::after {
+    @apply rounded-md absolute content-['']  left-0 bottom-[0%] bg-gradient-to-r from-cyan-600/80 to-transparent h-[5px] w-[16%];
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .nameMain {
+      background: linear-gradient(
+          90deg,
+          rgba(147, 51, 234, 1),
+          rgba(20, 184, 166, 1),
+          rgba(147, 51, 234, 1)
+        )
+        0 0 / 400% 100%;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: move-bg 10s infinite linear;
+    }
+
+    @keyframes move-bg {
+      to {
+        background-position: 400% 0;
+      }
+    }
+  }
+
+  .scrollArrow {
+    @apply text-cyan-500;
+    animation: bounce 4s ease infinite;
+    transform-origin: center bottom;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0) scale(2.2) scalex(2);
+    }
+    50% {
+      transform: translateY(10px) scale(1.6) scalex(2);
+    }
+  }
+
+  .scrollArrow:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .scrollArrow:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}

@@ -1,5 +1,4 @@
 import Navbar from "../navbar";
-import { ScrollWrapper } from "../scrollWrapper";
 
 export default function RootLayout({
   children,

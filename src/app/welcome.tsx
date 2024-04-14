@@ -1,7 +1,21 @@
+"use client";
 import "./styles/welcome.css";
 import { TbArrowBadgeDown } from "react-icons/tb";
 
 export default function WelcomeSection() {
+  const downloadPdf = () => {
+    const pdfUrl = "/Fernando_TamayoCV2024.pdf";
+
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = pdfUrl.split("/").pop() ?? "My_CV";
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="flex flex-col justify-center gap-[48px]  h-screen">
       <div className="flex flex-col gap-[16px]">
@@ -21,7 +35,9 @@ export default function WelcomeSection() {
         </div>
       </div>
       <div className="flex sm:flex-row flex-col gap-2 sm:gap-6">
-        <button className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl p-4 sm:p-4 bg-cyan-300 sm:w-38 text-white">
+        <button
+          onClick={downloadPdf}
+          className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl p-4 sm:p-4 bg-cyan-300 sm:w-38 text-white">
           Download CV
         </button>
         <button className="text-sm text-cyan-300 rounded-3xl border-4 hover:bg-gradient-to-r from-red-700 to-yellow-600 border-cyan-300 p-4 w-38 hover:shadow-inner">

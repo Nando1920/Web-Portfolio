@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./styles/navbar.css";
 import { atTop, progress } from "./scrollWrapper";
 import { useEffect, useState } from "react";
+import HeaderLogo from "@/assets/img/headerLogo";
 
 export default function Navbar() {
   const [isAtTop, setIsAtTop] = useState(atTop.value);
@@ -70,7 +71,7 @@ export default function Navbar() {
     <>
       {burgerButton()}
       <nav
-        className={`flex justify-end sm:justify-between  items-center lg:px-12 sm:px-8 px-4 py-4 ${
+        className={`flex justify-end sm:justify-between  items-center lg:px-12 sm:px-8 px-4 py-2 ${
           !isAtTop
             ? "shadow-lg shadow-black-100 bg-white/80 "
             : "bg-transparent"
@@ -78,7 +79,7 @@ export default function Navbar() {
         <Link
           href={"/"}
           className=" text-cyan-500 text-sm hover:text-cyan-600 transition-colors ">
-          My Portfolio
+          <HeaderLogo />
         </Link>
         <div className="flex gap-6 hidden sm:flex">
           {navArray.map((item) => {

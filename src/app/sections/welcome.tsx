@@ -26,7 +26,7 @@ export default function WelcomeSection() {
           src={Me}
           alt={"A nice photo of me"}
           priority
-          className="opacity-1"
+          className="opacity-1 rounded-full"
         />
       </div>
       <div className="flex flex-col justify-center gap-[16px] h-full relative pt-[60%] sm:pt-[0%]">

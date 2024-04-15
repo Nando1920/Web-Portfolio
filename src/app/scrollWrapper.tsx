@@ -4,7 +4,6 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 import { FC, Fragment } from "react";
 
 export const atTop = signal<boolean>(true);
-
 export const progress = signal<number>(0);
 
 export const ScrollWrapper: FC<{ children: any }> = ({ children }) => {

@@ -1,5 +1,5 @@
 "use client";
-import "./styles/welcome.css";
+import "../styles/welcome.css";
 import { TbArrowBadgeDown } from "react-icons/tb";
 
 export default function WelcomeSection() {

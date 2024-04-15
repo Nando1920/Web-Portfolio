@@ -1,8 +1,9 @@
-import ExperienceSection from "./experoence";
 import Navbar from "./navbar";
 import { ScrollWrapper } from "./scrollWrapper";
-import SkillsSection from "./skills";
-import WelcomeSection from "./welcome";
+import ExperienceSection from "./sections/experoence";
+import ReachOutSection from "./sections/reachOut";
+import SkillsSection from "./sections/skills";
+import WelcomeSection from "./sections/welcome";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
           <WelcomeSection />
           <SkillsSection />
           <ExperienceSection />
+          <ReachOutSection />
         </div>
       </ScrollWrapper>
     </main>

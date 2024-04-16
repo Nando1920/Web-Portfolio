@@ -56,7 +56,7 @@ export default function Navbar() {
                 className={`text-white text-nowrap text-lg min-w-fit overflow-hidden`}
                 onClick={() => {
                   setHidden(true);
-                  setButtonClass("burger");
+                  setButtonClass("bar unclicked");
                 }}>
                 {item.name}
               </Link>

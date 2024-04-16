@@ -20,8 +20,8 @@ export default function WelcomeSection() {
 
   return (
     <section className="h-screen">
-      <div className="absolute scale-[80%] top-[2%] left-[15%] sm:left-auto sm:right-0  ">
-        <div className=" h-full w-full  bg-gradient-radial from-transparent via-backgroundLight  via-[60%] to-backgroundLight  scale-105  z-20 absolute"></div>
+      <div className="absolute  top-[2%] left-[15%] sm:left-auto sm:right-0">
+        <div className="h-full w-full bg-gradient-radial from-transparent via-backgroundLight  via-[60%] to-backgroundLight scale-105  absolute"></div>
         <Image
           src={Me}
           alt={"A nice photo of me"}
@@ -29,26 +29,24 @@ export default function WelcomeSection() {
           className="opacity-1 rounded-full"
         />
       </div>
-      <div className="flex flex-col justify-center gap-[16px] h-full relative pt-[60%] sm:pt-[0%]">
+      <div className=" flex flex-col justify-center gap-[16px] h-full relative pt-[60%] sm:pt-[0%] xl:pt-[0%]">
         <div className="flex flex-col gap-[16px]">
           <div className="text-xl">
             Hello there, I'm{" "}
-            <span className="nameMain font-bold">Fernando</span>{" "}
+            <span className="nameMain font-bold">Fernando</span>
           </div>
           <div className="font-medio xl:text-8xl md:text-7xl text-5xl flex flex-col w-[280px] md:w-[550px] xl:w-[720px]">
-            <div className=" partialUnder text-cyan-500 relative ">
+            <div className="partialUnder text-cyan-500 relative">
               Full-Stack
             </div>
-
-            <div className=" text-right">Developer</div>
+            <div className="text-right">Developer</div>
           </div>
-          <div className="text-xs font-extralight  sm:max-w-96">
+          <div className="text-xs font-extralight sm:max-w-96">
             Lorem ipsum dolor sit amet, veritus euripidis sed ne, nam in illud
             fabulas. Id partem altera animal sit, platonem facilisis est in, ut
             vel eirmod epicuri.
           </div>
         </div>
-
         <div className="flex sm:flex-row flex-col gap-2 sm:gap-6">
           <button
             onClick={downloadPdf}
@@ -62,8 +60,8 @@ export default function WelcomeSection() {
         <div className="flex flex-row justify-center w-full">
           <div className="flex flex-col justify-between">
             <TbArrowBadgeDown className="scrollArrow" />
-            <TbArrowBadgeDown className="scrollArrow " />
-            <TbArrowBadgeDown className="scrollArrow " />
+            <TbArrowBadgeDown className="scrollArrow" />
+            <TbArrowBadgeDown className="scrollArrow" />
           </div>
         </div>
       </div>

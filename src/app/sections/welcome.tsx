@@ -21,7 +21,7 @@ export default function WelcomeSection() {
   return (
     <section className="h-screen">
       <div className="absolute scale-[80%] top-[2%] left-[15%] sm:left-auto sm:right-0  ">
-        <div className=" h-full w-full  bg-gradient-radial from-transparent via-backgroundLight via-[70%] to-backgroundLight scale-105  z-20 absolute"></div>
+        <div className=" h-full w-full  bg-gradient-radial from-transparent via-backgroundLight  via-[60%] to-backgroundLight  scale-105  z-20 absolute"></div>
         <Image
           src={Me}
           alt={"A nice photo of me"}
@@ -42,7 +42,7 @@ export default function WelcomeSection() {
 
             <div className=" text-right">Developer</div>
           </div>
-          <div className="text-xs font-extralight">
+          <div className="text-xs font-extralight  sm:max-w-96">
             Lorem ipsum dolor sit amet, veritus euripidis sed ne, nam in illud
             fabulas. Id partem altera animal sit, platonem facilisis est in, ut
             vel eirmod epicuri.
@@ -61,7 +61,7 @@ export default function WelcomeSection() {
         </div>
         <div className="flex flex-row justify-center w-full">
           <div className="flex flex-col justify-between">
-            <TbArrowBadgeDown className="scrollArrow animate-pulse" />
+            <TbArrowBadgeDown className="scrollArrow" />
             <TbArrowBadgeDown className="scrollArrow " />
             <TbArrowBadgeDown className="scrollArrow " />
           </div>

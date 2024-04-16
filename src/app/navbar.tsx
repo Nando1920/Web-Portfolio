@@ -27,7 +27,7 @@ export default function Navbar() {
   const burgerButton = () => {
     return (
       <div
-        className="sm:hidden left-4 top-[3%] fixed z-50 text-red-500 flex flex-col gap-[4px]"
+        className="sm:hidden left-4 top-4 fixed z-50 text-red-500 flex flex-col gap-[4px]"
         onClick={() => {
           setButtonClass((curr) => {
             return curr.includes("unclicked") ? "bar clicked" : "bar unclicked";

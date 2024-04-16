@@ -11,6 +11,10 @@ const config: Config = {
       colors: {
         backgroundLight: {
           DEFAULT: "rgb(243, 249, 248)",
+          DARK: "rgb(12, 12, 12)",
+        },
+        backgroundDark: {
+          DEFAULT: "rgb(12, 12, 12)",
         },
       },
       backgroundImage: {

@@ -1,28 +1,24 @@
 "use client";
+import { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { FaCode } from "react-icons/fa";
-import skills from "../../../public/aboutme.jpg";
-import experience from "../../../public/exp.webp";
-
-import { useState } from "react";
+import skillsImage from "../../../public/aboutme.jpg";
+import experienceImage from "../../../public/exp.webp";
+import educationImage from "../../../public/exp.webp";
 
 export default function SkillsSection() {
   const [section, setSection] = useState("skills");
-  const [image, setImage] = useState<StaticImageData>(skills);
+  const [image, setImage] = useState<StaticImageData>(skillsImage);
 
   const navArray: any[] = [
-    { name: "Skills", section: "skills" },
-    { name: "Experience", section: "experience" },
-    { name: "Education", section: "education" },
+    { name: "Skills", section: "skills", image: skillsImage },
+    { name: "Experience", section: "experience", image: experienceImage },
+    { name: "Education", section: "education", image: educationImage },
   ];
 
   const getContent = (section: string) => {
     switch (section) {
       case "skills":
-        if (image !== skills) {
-          setImage(skills);
-        }
-
         return (
           <>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -33,10 +29,6 @@ export default function SkillsSection() {
           </>
         );
       case "experience":
-        if (image !== experience) {
-          setImage(experience);
-        }
-
         return (
           <>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -59,13 +51,22 @@ export default function SkillsSection() {
         <>No Content Found</>;
     }
   };
+
+  const handleSectionChange = (
+    selectedSection: string,
+    selectedImage: StaticImageData
+  ) => {
+    setSection(selectedSection);
+    setImage(selectedImage);
+  };
+
   return (
     <section className="h-fit p-2">
-      <div className="grid grid-rows-9 gap-4 h-full ">
+      <div className="grid grid-rows-2 gap-4 h-full ">
         <div className=" row-span-2">
           <Image src={image} alt="56564" />
         </div>
-        <div className="row-span-6 flex flex-col gap-4 bg-backgroundLight">
+        <div className="row-span-1 flex flex-col gap-4 bg-backgroundLight">
           <div className="flex flex-row justify-start text-2xl w-full items-center text-violet-600">
             <FaCode />
             <div className=" font-semibold ">About me</div>
@@ -79,17 +80,16 @@ export default function SkillsSection() {
           </div>
           <div>
             <ul className="flex gap-4 relative">
-              {navArray.map((element) => {
-                return (
-                  <li
-                    className="hover:text-violet-600"
-                    onClick={() => {
-                      setSection(element.section);
-                    }}>
-                    {element.name}
-                  </li>
-                );
-              })}
+              {navArray.map((item) => (
+                <li
+                  key={item.section}
+                  className={`cursor-pointer hover:text-violet-600 ${
+                    section === item.section ? "font-semibold" : ""
+                  }`}
+                  onClick={() => handleSectionChange(item.section, item.image)}>
+                  {item.name}
+                </li>
+              ))}
             </ul>
           </div>
           <div>{getContent(section)}</div>

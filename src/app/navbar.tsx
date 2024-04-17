@@ -78,10 +78,10 @@ export default function Navbar() {
         }  text-lg fixed w-svw top-0 z-40 transition-shadow duration-300`}>
         <Link
           href={"/"}
-          className=" text-cyan-500 text-sm hover:text-cyan-600 transition-colors ">
+          className=" text-cyan-500 scale-[200%] text-sm hover:text-cyan-600 transition-colors ">
           <HeaderLogo />
         </Link>
-        <div className="flex gap-6 hidden sm:flex">
+        <div className="gap-6 hidden sm:flex">
           {navArray.map((item) => {
             return (
               <Link href={item.ref} key={item.name} className="navOption">

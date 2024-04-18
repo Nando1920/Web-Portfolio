@@ -1,19 +1,20 @@
 "use client";
 import Link from "next/link";
 import "./styles/navbar.css";
-import { atTop, progress } from "./scrollWrapper";
 import { useEffect, useState } from "react";
 import HeaderLogo from "@/assets/img/headerLogo";
+import { useScrollContext } from "./scroll/scrollProvider";
 
-export default function Navbar() {
-  const [isAtTop, setIsAtTop] = useState(atTop.value);
+export default function Navbar({ onClick }: { onClick: Function }) {
+  const { atTop, progress } = useScrollContext();
+  const [isAtTop, setIsAtTop] = useState(atTop);
   const [hidden, setHidden] = useState(true);
   const [buttonClass, setButtonClass] = useState("bar unclicked");
 
   const navArray: any[] = [
-    { name: "Projects", ref: "/home" },
-    { name: "About", ref: "/home/about" },
-    { name: "Contact Me", ref: "/home/about" },
+    { name: "About", ref: "/home/about", scroll: "about" },
+    { name: "Projects", ref: "/home", scroll: "projects" },
+    { name: "Contact Me", ref: "/home/about", scroll: "contact" },
   ];
 
   useEffect(() => {
@@ -21,8 +22,8 @@ export default function Navbar() {
       setIsAtTop(value);
     };
 
-    atTop.subscribe(handleChange);
-  }, []);
+    handleChange(atTop);
+  }, [atTop]);
 
   const burgerButton = () => {
     return (
@@ -50,16 +51,16 @@ export default function Navbar() {
         <div className="px-4 pt-[15vh] h-[100%] flex flex-col gap-4 justify-start  ">
           {navArray.map((item) => {
             return (
-              <Link
-                href={item.ref}
+              <div
                 key={item.name}
                 className={`text-white text-nowrap text-lg min-w-fit overflow-hidden`}
                 onClick={() => {
+                  onClick(item.scroll);
                   setHidden(true);
                   setButtonClass("bar unclicked");
                 }}>
                 {item.name}
-              </Link>
+              </div>
             );
           })}
         </div>
@@ -84,9 +85,14 @@ export default function Navbar() {
         <div className="gap-6 hidden sm:flex">
           {navArray.map((item) => {
             return (
-              <Link href={item.ref} key={item.name} className="navOption">
+              <div
+                onClick={() => {
+                  onClick(item.scroll);
+                }}
+                key={item.name}
+                className="navOption">
                 {item.name}
-              </Link>
+              </div>
             );
           })}
         </div>

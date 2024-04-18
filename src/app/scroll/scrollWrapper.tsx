@@ -1,21 +1,19 @@
 "use client";
-import { signal, useSignal } from "@preact/signals";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { FC, Fragment } from "react";
-
-export const atTop = signal<boolean>(true);
-export const progress = signal<number>(0);
+import { useScrollContext } from "./scrollProvider";
 
 export const ScrollWrapper: FC<{ children: any }> = ({ children }) => {
   const { scrollY, scrollYProgress } = useScroll();
+  const { setAtTop, setProgress } = useScrollContext();
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     console.log(latest);
-    progress.value = latest;
+    setProgress(latest);
   });
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    atTop.value = latest <= 0;
+    setAtTop(latest <= 0);
   });
 
   return <Fragment>{children}</Fragment>;

@@ -1,12 +1,16 @@
 "use client";
-import { useState } from "react";
+import { LegacyRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { FaCode } from "react-icons/fa";
 import skillsImage from "../../../public/aboutme.jpg";
 import experienceImage from "../../../public/exp.webp";
 import educationImage from "../../../public/exp.webp";
 
-export default function SkillsSection() {
+export default function SkillsSection({
+  forwardedRef,
+}: {
+  forwardedRef: LegacyRef<HTMLElement> | undefined;
+}) {
   const [section, setSection] = useState("skills");
   const [image, setImage] = useState<StaticImageData>(skillsImage);
 
@@ -61,7 +65,7 @@ export default function SkillsSection() {
   };
 
   return (
-    <section className="h-fit p-2">
+    <section ref={forwardedRef} className="h-fit p-2">
       <div className="grid grid-rows-2 gap-4 h-full ">
         <div className=" row-span-2">
           <Image src={image} alt="56564" />

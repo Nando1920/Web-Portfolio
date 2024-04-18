@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { LegacyRef, useRef, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 interface ITextField {
@@ -34,7 +34,11 @@ export function TextField({
   );
 }
 
-export default function ReachOutSection() {
+export default function ReachOutSection({
+  forwardedRef,
+}: {
+  forwardedRef: LegacyRef<HTMLElement> | undefined;
+}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -56,11 +60,16 @@ export default function ReachOutSection() {
   const sendEmail = () => {
     setLoading(true);
 
-    // setLoading(false);
+    // Simulate sending email
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
 
   return (
-    <section className="  flex flex-col items-center gap-[32px] p-4 ">
+    <section
+      ref={forwardedRef}
+      className="flex flex-col items-center gap-[32px] p-4">
       <h1 className="text-2xl text-cyan-500">Get in touch</h1>
       <div className="flex flex-col items-center w-full gap-5">
         <TextField
@@ -78,10 +87,10 @@ export default function ReachOutSection() {
           label="Email"
           placeholder="Enter your email..."
         />
-        <div className="flex flex-col w-full ">
+        <div className="flex flex-col w-full">
           <label className="font-semibold text-xs px-2">Message</label>
           <textarea
-            className="  h-fit min-h-24 p-2 rounded-xl border-[1px] focus border-cyan-300 text-sm"
+            className="h-fit min-h-24 p-2 rounded-xl border-[1px] focus border-cyan-300 text-sm"
             name="message"
             onChange={handleInput}
             value={formData.message}

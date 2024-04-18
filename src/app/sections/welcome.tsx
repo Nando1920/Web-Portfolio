@@ -19,19 +19,17 @@ export default function WelcomeSection() {
   };
 
   return (
-    <section className="h-screen -mt-4 flex justify-around items-center flex-col">
+    <section className="h-screen -mt-4 flex justify-around items-center flex-col ">
       <div className="flex justify-start">
-        <div className="absolute  top-[5%] left-[15%] sm:left-auto sm:right-0">
-          <div>
-            <div className="h-full w-full  bg-gradient-to-bl from-transparent via-backgroundLight  via-[70%] to-backgroundLight scale-105  absolute"></div>
-            <Image
-              src={Me}
-              alt={"A nice photo of me"}
-              priority
-              className="opacity-1 rounded-full"
-            />
-          </div>
-          <div className=" -24 border-4 rounded-full bg-cyan-400 absolute top-[60%] right-[-10%] sm:right-[12%] sm:top-[80%] z-0 sm:h-32 sm:w-32 sm:border-8 border-backgroundLight" />
+        <div className="absolute  top-[5%] left-[15%] sm:left-auto sm:right-0 overflow-clip">
+          <div className="h-full w-full  bg-gradient-to-bl from-transparent via-backgroundLight  via-[70%] to-backgroundLight  absolute"></div>
+          <Image
+            src={Me}
+            alt={"A nice photo of me"}
+            priority
+            className="opacity-1 rounded-full"
+          />
+          <div className=" h-24 w-24 border-4 rounded-full bg-cyan-400 absolute top-[60%] right-[-10%] sm:right-[12%] sm:top-[80%] z-0 sm:h-32 sm:w-32 sm:border-8 border-backgroundLight" />
         </div>
         <div className=" flex flex-col justify-center gap-[16px] h-full relative pt-[60%] sm:pt-[0%] xl:pt-[0%]">
           <div className="flex flex-col gap-[16px]">

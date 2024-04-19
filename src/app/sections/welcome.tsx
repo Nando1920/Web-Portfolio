@@ -1,10 +1,10 @@
 "use client";
 import "../styles/welcome.css";
-import { TbArrowBadgeDown } from "react-icons/tb";
 import Image from "next/image";
 import Me from "/public/me.jpg";
+import { TbArrowBadgeDown } from "react-icons/tb";
 
-export default function WelcomeSection() {
+export default function WelcomeSection({ onClick }: { onClick: Function }) {
   const downloadPdf = () => {
     const pdfUrl = "/Fernando_TamayoCV2024.pdf";
 
@@ -19,9 +19,9 @@ export default function WelcomeSection() {
   };
 
   return (
-    <section className="h-screen -mt-4 flex justify-around items-center flex-col ">
+    <section className="h-[100svh] -mt-4 flex justify-around items-center flex-col ">
       <div className="flex justify-start">
-        <div className="absolute  top-[5%] left-[15%] sm:left-auto sm:right-0 overflow-clip">
+        <div className="absolute  top-[5%] left-[15%] sm:left-auto sm:right-0 overflow-clip sm:overflow-visible">
           <div className="h-full w-full  bg-gradient-to-bl from-transparent via-backgroundLight  via-[70%] to-backgroundLight  absolute"></div>
           <Image
             src={Me}
@@ -55,7 +55,11 @@ export default function WelcomeSection() {
               className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl p-4 sm:p-4 bg-cyan-400 sm:w-38 text-white">
               Download CV
             </button>
-            <button className="  text-sm text-cyan-400 rounded-3xl border-4 hover:bg-gradient-to-r from-red-700 to-yellow-600 border-cyan-400 p-4 w-38 hover:shadow-inner">
+            <button
+              onClick={() => {
+                onClick("contact");
+              }}
+              className="  text-sm font-semibold  text-cyan-500 rounded-3xl border-4 hover:bg-gradient-to-r from-red-700 to-yellow-600 border-cyan-400 p-4 w-38 hover:shadow-inner">
               Get in touch
             </button>
           </div>

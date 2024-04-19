@@ -10,14 +10,13 @@ export default function Home() {
   const contactFormRef = useRef<HTMLElement | null>(null);
   const aboutRef = useRef<HTMLElement | null>(null);
   const projectsormRef = useRef<HTMLElement | null>(null);
-
+  console.log("reload");
   const scrollToSection = (section: string) => {
-    console.log(section);
     switch (section) {
       case "contact":
         contactFormRef.current?.scrollIntoView({
           behavior: "smooth",
-          block: "end",
+          block: "start",
         });
         break;
       case "about":
@@ -40,7 +39,7 @@ export default function Home() {
       <Navbar onClick={scrollToSection} />
 
       <div className="p-4 sm:px-10 lg:px-16 xl:py-48 flex flex-col h-fit">
-        <WelcomeSection />
+        <WelcomeSection onClick={scrollToSection} />
         <SkillsSection forwardedRef={aboutRef} />
         <ExperienceSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />

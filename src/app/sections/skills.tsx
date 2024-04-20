@@ -61,7 +61,6 @@ export default function AboutSection({
     const images = document.querySelectorAll(
       ".masked:not(.hiddenImg), .unmasked"
     );
-    console.log(images);
 
     images.forEach((image) => {
       image.classList.add("masked-reset");
@@ -75,7 +74,6 @@ export default function AboutSection({
     if (selectedSection !== section) setMask(section);
     setSection(selectedSection);
   };
-  console.log("fades in: ", section, "fades out: ", mask);
   return (
     <section ref={forwardedRef} className="h-fit p-2">
       <div className="grid grid-rows-2 gap-4 h-full ">

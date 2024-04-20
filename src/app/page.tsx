@@ -5,12 +5,17 @@ import ExperienceSection from "./sections/experoence";
 import ReachOutSection from "./sections/reachOut";
 import WelcomeSection from "./sections/welcome";
 import AboutSection from "./sections/skills";
+import { FaArrowUp } from "react-icons/fa";
+import { useScrollContext } from "./scroll/scrollProvider";
 
 export default function Home() {
   const contactFormRef = useRef<HTMLElement | null>(null);
   const aboutRef = useRef<HTMLElement | null>(null);
   const projectsormRef = useRef<HTMLElement | null>(null);
+  const { scrollToTop } = useScrollContext();
+
   console.log("reload");
+
   const scrollToSection = (section: string) => {
     switch (section) {
       case "contact":
@@ -33,6 +38,13 @@ export default function Home() {
         break;
     }
   };
+  function scrollTop() {
+    if (!scrollToTop) return;
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 
   return (
     <main className=" overflow-hidden">
@@ -43,6 +55,14 @@ export default function Home() {
         <AboutSection forwardedRef={aboutRef} />
         <ExperienceSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />
+      </div>
+
+      <div
+        onClick={scrollTop}
+        className={` transition-opacity duration-300 ${
+          scrollToTop ? "opacity-100" : "opacity-0 pointer-events-none"
+        } shadow-md shadow-black/50 fixed bottom-4 right-4 flex justify-center items-center h-12 w-12 rounded-full bg-cyan-500`}>
+        <FaArrowUp className=" text-backgroundLight" />
       </div>
     </main>
   );

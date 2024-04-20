@@ -1,0 +1,26 @@
+@tailwind utilities;
+
+@layer utilities {
+  .unmasked {
+    -webkit-mask-image: linear-gradient(to left, #fff 47.5%, transparent 52.5%);
+    -webkit-mask-size: 210%;
+    -webkit-mask-position: 100%;
+    transition: -webkit-mask-position 1s linear;
+  }
+
+  .masked {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      #fff 47.5%,
+      transparent 52.5%
+    );
+    -webkit-mask-size: 210%;
+    -webkit-mask-position: 100%;
+    transition: -webkit-mask-position 1s linear;
+  }
+
+  .masked-reset {
+    -webkit-mask-position: 0;
+    transition: -webkit-mask-position 0s;
+  }
+}

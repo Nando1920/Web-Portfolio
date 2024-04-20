@@ -1,18 +1,19 @@
 "use client";
-import { LegacyRef, useState } from "react";
+import { LegacyRef, useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { FaCode } from "react-icons/fa";
 import skillsImage from "../../../public/aboutme.jpg";
 import experienceImage from "../../../public/exp.webp";
-import educationImage from "../../../public/exp.webp";
+import educationImage from "../../../public/education.jpg";
+import "../styles/aboutMe.css";
 
-export default function SkillsSection({
+export default function AboutSection({
   forwardedRef,
 }: {
   forwardedRef: LegacyRef<HTMLElement> | undefined;
 }) {
   const [section, setSection] = useState("skills");
-  const [image, setImage] = useState<StaticImageData>(skillsImage);
+  const [mask, setMask] = useState("");
 
   const navArray: any[] = [
     { name: "Skills", section: "skills", image: skillsImage },
@@ -56,19 +57,54 @@ export default function SkillsSection({
     }
   };
 
-  const handleSectionChange = (
-    selectedSection: string,
-    selectedImage: StaticImageData
-  ) => {
-    setSection(selectedSection);
-    setImage(selectedImage);
-  };
+  useEffect(() => {
+    const images = document.querySelectorAll(
+      ".masked:not(.hiddenImg), .unmasked"
+    );
+    console.log(images);
 
+    images.forEach((image) => {
+      image.classList.add("masked-reset");
+      setTimeout(() => {
+        image.classList.remove("masked-reset");
+      }, 10);
+    });
+  }, [section]);
+
+  const handleSectionChange = (selectedSection: string) => {
+    if (selectedSection !== section) setMask(section);
+    setSection(selectedSection);
+  };
+  console.log("fades in: ", section, "fades out: ", mask);
   return (
     <section ref={forwardedRef} className="h-fit p-2">
       <div className="grid grid-rows-2 gap-4 h-full ">
-        <div className=" row-span-2">
-          <Image src={image} alt="56564" />
+        <div className=" row-span-2 flex flex-col h-48 relative aspect-auto">
+          <Image
+            src={skillsImage}
+            alt="56564"
+            className={`h-full ${
+              section === "skills" ? "unmasked " : "masked"
+            } ${mask !== "skills" ? "hiddenImg" : ""}   inset-0 absolute `}
+          />
+          <Image
+            src={experienceImage}
+            alt="56564"
+            className={`h-full ${
+              section === "experience" ? "unmasked  " : "masked "
+            }   ${mask !== "experience" ? "hiddenImg " : ""} inset-0 absolute `}
+          />
+          <Image
+            src={educationImage}
+            alt="56564"
+            className={`h-full ${
+              section === "education" ? "unmasked  " : "masked "
+            } ${
+              mask !== "education" && section !== "education"
+                ? "hiddenImg "
+                : ""
+            } inset-0  absolute `}
+          />
         </div>
         <div className="row-span-1 flex flex-col gap-4 bg-backgroundLight">
           <div className="flex flex-row justify-start text-2xl w-full items-center text-violet-600">
@@ -90,7 +126,7 @@ export default function SkillsSection({
                   className={`cursor-pointer hover:text-violet-600 ${
                     section === item.section ? "font-semibold" : ""
                   }`}
-                  onClick={() => handleSectionChange(item.section, item.image)}>
+                  onClick={() => handleSectionChange(item.section)}>
                   {item.name}
                 </li>
               ))}

@@ -3,8 +3,8 @@ import { useRef } from "react";
 import Navbar from "./navbar";
 import ExperienceSection from "./sections/experoence";
 import ReachOutSection from "./sections/reachOut";
-import SkillsSection from "./sections/skills";
 import WelcomeSection from "./sections/welcome";
+import AboutSection from "./sections/skills";
 
 export default function Home() {
   const contactFormRef = useRef<HTMLElement | null>(null);
@@ -40,7 +40,7 @@ export default function Home() {
 
       <div className="p-4 sm:px-10 lg:px-16 xl:py-48 flex flex-col h-fit">
         <WelcomeSection onClick={scrollToSection} />
-        <SkillsSection forwardedRef={aboutRef} />
+        <AboutSection forwardedRef={aboutRef} />
         <ExperienceSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />
       </div>

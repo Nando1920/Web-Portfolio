@@ -29,7 +29,7 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
             priority
             className="opacity-1 rounded-full"
           />
-          <div className=" h-24 w-24 border-4 rounded-full bg-cyan-400 absolute top-[60%] right-[-10%] sm:right-[12%] sm:top-[80%] z-0 sm:h-32 sm:w-32 sm:border-8 border-backgroundLight" />
+          <div className=" h-24 w-24 border-4 rounded-full bg-gradient-to-tr from-cyan-200 via-cyan-500 via-40% to-cyan-600 absolute top-[60%] right-[-10%] sm:right-[12%] sm:top-[80%] z-0 sm:h-32 sm:w-32 sm:border-8 border-backgroundLight" />
         </div>
         <div className=" flex flex-col justify-center gap-[16px] h-full relative pt-[60%] sm:pt-[0%] xl:pt-[0%]">
           <div className="flex flex-col gap-[16px]">
@@ -52,14 +52,14 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
           <div className="flex sm:flex-row flex-col gap-2 sm:gap-6">
             <button
               onClick={downloadPdf}
-              className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl p-4 sm:p-4 bg-cyan-400 sm:w-38 text-white">
+              className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl p-4 sm:p-4 bg-cyan-400 sm:w-full text-white">
               Download CV
             </button>
             <button
               onClick={() => {
                 onClick("contact");
               }}
-              className="  text-sm font-semibold  text-cyan-500 rounded-3xl border-4 hover:bg-gradient-to-r from-red-700 to-yellow-600 border-cyan-400 p-4 w-38 hover:shadow-inner">
+              className="  text-sm font-semibold  text-cyan-500 rounded-3xl border-4 hover:bg-gradient-to-r from-red-700 to-yellow-600 border-cyan-400 p-4 w-full hover:shadow-inner">
               Get in touch
             </button>
           </div>

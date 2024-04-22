@@ -5,7 +5,8 @@
     -webkit-mask-image: linear-gradient(to left, #fff 47.5%, transparent 52.5%);
     -webkit-mask-size: 210%;
     -webkit-mask-position: 100%;
-    transition: -webkit-mask-position 1s linear;
+    z-index: 0;
+    transition: -webkit-mask-position 0.7s linear;
   }
 
   .masked {
@@ -14,13 +15,18 @@
       #fff 47.5%,
       transparent 52.5%
     );
+    z-index: 10;
     -webkit-mask-size: 210%;
     -webkit-mask-position: 100%;
-    transition: -webkit-mask-position 1s linear;
+    transition: -webkit-mask-position 0.7s linear;
   }
 
   .masked-reset {
     -webkit-mask-position: 0;
     transition: -webkit-mask-position 0s;
+  }
+
+  .list-disc > li::before {
+    color: blue;
   }
 }

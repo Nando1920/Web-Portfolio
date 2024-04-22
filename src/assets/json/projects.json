@@ -1,0 +1,19 @@
+{
+  "projects": [
+    {
+      "client": "Soft Pauer",
+      "name": "EventR",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac orce phasellus egestas tellus rutrum tellus pellentesque eu. Dui nunc mattis enim ut tellus elementum sagittis. Habitasse platea dictumst quisque sagittis. Magnis dis parturient montes nascetur ridiculus mus mauris. Eu mi bibendum neque egestas congue quisque egestas. Enim facilisis gravida neque convallis a"
+    },
+    {
+      "client": "Karen Cuenca",
+      "name": "Templates",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac orce phasellus egestas tellus rutrum tellus pellentesque eu. Dui nunc mattis enim ut tellus elementum sagittis. Habitasse platea dictumst quisque sagittis. Magnis dis parturient montes nascetur ridiculus mus mauris. Eu mi bibendum neque egestas congue quisque egestas. Enim facilisis gravida neque convallis a"
+    },
+    {
+      "client": "N/A",
+      "name": "Coming Soon",
+      "text": ""
+    }
+  ]
+}

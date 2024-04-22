@@ -1,12 +1,12 @@
 "use client";
 import { useRef } from "react";
 import Navbar from "./navbar";
-import ExperienceSection from "./sections/experoence";
 import ReachOutSection from "./sections/reachOut";
 import WelcomeSection from "./sections/welcome";
-import AboutSection from "./sections/skills";
+import AboutSection from "./sections/about";
 import { FaArrowUp } from "react-icons/fa";
 import { useScrollContext } from "./scroll/scrollProvider";
+import ProjectsSection from "./sections/projects";
 
 export default function Home() {
   const contactFormRef = useRef<HTMLElement | null>(null);
@@ -53,7 +53,7 @@ export default function Home() {
       <div className="p-4 sm:px-10 lg:px-16 xl:py-48 flex flex-col h-fit">
         <WelcomeSection onClick={scrollToSection} />
         <AboutSection forwardedRef={aboutRef} />
-        <ExperienceSection forwardedRef={projectsormRef} />
+        <ProjectsSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />
       </div>
 

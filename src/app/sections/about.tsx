@@ -1,6 +1,6 @@
 "use client";
 import { LegacyRef, useEffect, useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { FaCode } from "react-icons/fa";
 import skillsImage from "../../../public/aboutme.jpg";
 import experienceImage from "../../../public/exp.webp";
@@ -16,22 +16,42 @@ export default function AboutSection({
   const [mask, setMask] = useState("");
 
   const navArray: any[] = [
-    { name: "Skills", section: "skills", image: skillsImage },
-    { name: "Experience", section: "experience", image: experienceImage },
-    { name: "Education", section: "education", image: educationImage },
+    { name: "Skills", section: "skills" },
+    { name: "Experience", section: "experience" },
+    { name: "Education", section: "education" },
   ];
 
   const getContent = (section: string) => {
     switch (section) {
       case "skills":
+        const skillList: string[] = [
+          "React / Next.js",
+          "Typescript",
+          "Javascript",
+          "PHP",
+          "Node.js",
+          "MySQL",
+          "HTML / CSS",
+          "Tailwind",
+          "Capacitor",
+          "REST APIs",
+          "GraphQL",
+          "WordPress",
+          "Multi-lingual",
+        ];
         return (
-          <>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim
-            lobortis scelerisque fermentum dui faucibus in ornare. Ac tortor
-            dignissim convallis aenean et tortor at risus. Sit amet cursus sit
-            amet dictum sit. Nisl tincidunt eget nullam non nisi est sit amet.
-          </>
+          <ul className="grid  grid-cols-2  gap-2 my-2 sm:grid-flow-col sm:grid-cols-3 sm:grid-rows-5">
+            {skillList.map((skill, index) => {
+              return (
+                <li
+                  key={index}
+                  className="ml-2 mb-1 relative flex items-center gap-2 flex-nowrap text-nowrap">
+                  <span className="before:left-0 before:w-2 before:h-2 before:bg-violet-500 before:rounded-full before:block"></span>
+                  {skill}
+                </li>
+              );
+            })}
+          </ul>
         );
       case "experience":
         return (
@@ -75,8 +95,8 @@ export default function AboutSection({
     setSection(selectedSection);
   };
   return (
-    <section ref={forwardedRef} className="h-fit p-2">
-      <div className="grid grid-rows-2 gap-4 h-full ">
+    <section ref={forwardedRef} className="h-fit px-2 py-12">
+      <div className="grid grid-rows-2 gap-2 h-full ">
         <div className=" row-span-2 flex flex-col h-48 relative aspect-auto">
           <Image
             src={skillsImage}
@@ -107,7 +127,7 @@ export default function AboutSection({
         <div className="row-span-1 flex flex-col gap-4 bg-backgroundLight">
           <div className="flex flex-row justify-start text-2xl w-full items-center text-violet-600">
             <FaCode />
-            <div className=" font-semibold ">About me</div>
+            <div className="text-2xl font-semibold ">About me</div>
           </div>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -117,20 +137,22 @@ export default function AboutSection({
             faucibus et molestie ac feugiat sed.{" "}
           </div>
           <div>
-            <ul className="flex gap-4 relative">
-              {navArray.map((item) => (
-                <li
-                  key={item.section}
-                  className={`cursor-pointer hover:text-violet-600 ${
-                    section === item.section ? "font-semibold" : ""
-                  }`}
-                  onClick={() => handleSectionChange(item.section)}>
-                  {item.name}
-                </li>
-              ))}
-            </ul>
+            <div>
+              <ul className="flex gap-4 relative">
+                {navArray.map((item) => (
+                  <li
+                    key={item.section}
+                    className={`cursor-pointer hover:text-violet-600 ${
+                      section === item.section ? "font-semibold" : ""
+                    }`}
+                    onClick={() => handleSectionChange(item.section)}>
+                    {item.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>{getContent(section)}</div>
           </div>
-          <div>{getContent(section)}</div>
         </div>
       </div>
     </section>

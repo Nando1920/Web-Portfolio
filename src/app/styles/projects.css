@@ -1,0 +1,15 @@
+.imageCard {
+  transform: scale(0.75);
+  opacity: 0.75;
+  transition: opacity, transform 1s ease;
+}
+
+.imageCard:hover {
+  transform: scale(0.8);
+  opacity: 0.9;
+}
+
+.imageCard.selected {
+  transform: scale(1);
+  opacity: 1;
+}

@@ -20,7 +20,7 @@ export default function ProjectsSection({
   forwardedRef: LegacyRef<HTMLElement> | undefined;
 }) {
   const [position, setPosition] = useState(0);
-  console.log(position);
+  const translate = position * 100;
   const setNext = () => {
     setPosition((position) =>
       position === projectsObj.projects.length - 1 ? 0 : position + 1
@@ -63,7 +63,6 @@ export default function ProjectsSection({
     onSwipedLeft: (eventData) => setNext(),
     onSwipedRight: (eventData) => setPrev(),
   });
-  console.log(`-translate-x-[${100 * position}%]`);
 
   return (
     <section
@@ -82,9 +81,7 @@ export default function ProjectsSection({
         <div className=" w-[60%] ">
           <div
             {...handlers}
-            className={`flex -translate-x-[${
-              100 * position
-            }%] transition-all duration-500`}>
+            className={`flex -translate-x-[${translate}%] transition-all duration-500`}>
             {projectsObj.projects.map((project, index) => {
               return <ProjectCard project={project} index={index} />;
             })}

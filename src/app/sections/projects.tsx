@@ -80,7 +80,7 @@ export default function ProjectsSection({
     <section
       {...handlers}
       ref={forwardedRef}
-      className=" relative flex flex-col items-center gap-4 h-fit py-4 sm:py-8">
+      className=" relative flex flex-col items-center gap-4 h-fit py-8 sm:py-8">
       <div className=" top-0 transform w-screen h-full absolute z-[-1] bg-primary" />
       <div className="text-2xl font-semibold text-white w-full">Projects</div>
       <div className="flex items-center justify-center gap-4">

@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import Navbar from "./navbar";
+import Navbar from "./components/navbar";
 import ReachOutSection from "./sections/reachOut";
 import WelcomeSection from "./sections/welcome";
 import AboutSection from "./sections/about";
@@ -49,10 +49,11 @@ export default function Home() {
   return (
     <main className=" overflow-hidden">
       <Navbar onClick={scrollToSection} />
+      <WelcomeSection onClick={scrollToSection} />
 
-      <div className="p-4 sm:px-10 lg:px-16 xl:py-48 flex flex-col h-fit">
-        <WelcomeSection onClick={scrollToSection} />
+      <div className="px-4 pb-4 sm:px-10 lg:px-16 xl:py-48 flex flex-col ">
         <AboutSection forwardedRef={aboutRef} />
+
         <ProjectsSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />
       </div>

@@ -5,6 +5,7 @@ import { FaCode } from "react-icons/fa";
 import skillsImage from "../../../public/aboutme.jpg";
 import experienceImage from "../../../public/exp.webp";
 import educationImage from "../../../public/education.jpg";
+import wave from "../../../public/wave.svg";
 import "../styles/aboutMe.css";
 
 export default function AboutSection({
@@ -102,6 +103,7 @@ export default function AboutSection({
           <Image
             src={skillsImage}
             alt="56564"
+            placeholder="blur"
             className={`h-full ${
               section === "skills" ? "unmasked " : "masked"
             } ${mask !== "skills" ? "hiddenImg" : ""}   inset-0 absolute `}
@@ -109,6 +111,7 @@ export default function AboutSection({
           <Image
             src={experienceImage}
             alt="56564"
+            placeholder="blur"
             className={`h-full ${
               section === "experience" ? "unmasked  " : "masked "
             }   ${mask !== "experience" ? "hiddenImg " : ""} inset-0 absolute `}
@@ -116,6 +119,7 @@ export default function AboutSection({
           <Image
             src={educationImage}
             alt="56564"
+            placeholder="blur"
             className={`h-full ${
               section === "education" ? "unmasked  " : "masked "
             } ${
@@ -156,6 +160,15 @@ export default function AboutSection({
           </div>
         </div>
       </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="bg-primary absolute w-screen left-[-5%] block">
+        <path
+          fill="#7D4775"
+          fill-opacity="1"
+          d="M0,160L24,160C48,160,96,160,144,160C192,160,240,160,288,133.3C336,107,384,53,432,58.7C480,64,528,128,576,165.3C624,203,672,213,720,186.7C768,160,816,96,864,106.7C912,117,960,203,1008,240C1056,277,1104,267,1152,245.3C1200,224,1248,192,1296,165.3C1344,139,1392,117,1416,106.7L1440,96L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path>
+      </svg>
     </section>
   );
 }

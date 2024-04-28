@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import "./styles/navbar.css";
+import "../styles/navbar.css";
 import { useEffect, useState } from "react";
 import HeaderLogo from "@/assets/img/headerLogo";
-import { useScrollContext } from "./scroll/scrollProvider";
+import { useScrollContext } from "../scroll/scrollProvider";
 
 export default function Navbar({ onClick }: { onClick: Function }) {
   const { atTop, progress } = useScrollContext();

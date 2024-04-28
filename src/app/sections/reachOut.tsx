@@ -1,6 +1,7 @@
 "use client";
 import { LegacyRef, useRef, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import "../styles/getInTouch.css";
 
 interface ITextField {
   value: string;
@@ -69,7 +70,8 @@ export default function ReachOutSection({
   return (
     <section
       ref={forwardedRef}
-      className="flex flex-col items-center gap-[32px] py-8">
+      className="flex flex-col items-center gap-[32px] relative">
+      <div className="shapedividers_com-1532 h-12   w-screen"></div>
       <h1 className="text-2xl text-cyan-500">Get in touch</h1>
       <div className="flex flex-col items-center w-full gap-5">
         <TextField
@@ -107,6 +109,7 @@ export default function ReachOutSection({
           "Send"
         )}
       </button>
+      <div className="shapedividers_com-5885 h-12  bottom-0 w-screen"></div>
     </section>
   );
 }

@@ -56,22 +56,39 @@ export default function AboutSection({
         );
       case "experience":
         return (
-          <>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. In hac
-            habitasse platea dictumst vestibulum rhoncus est. Nullam ac tortor
-            vitae purus faucibus ornare suspendisse sed. In vitae turpis massa
-            sed elementum. Eu consequat ac felis donec et odio pellentesque.
-          </>
+          <ul className="py-4">
+            <li>
+              <div className="flex gap-2 items-center">
+                <span className="before:left-0 before:w-2 before:h-2 before:bg-primaryBold before:rounded-full before:block"></span>
+                Soft Pauer Ltd. - Software Developer
+              </div>
+              <div className="px-8">Aug 2022 - Present</div>
+            </li>
+          </ul>
         );
       case "education":
         return (
-          <>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa
-            massa ultricies mi quis. Fusce id velit ut tortor pretium. Eu sem
-            integer vitae justo eget magna. Semper risus in hendrerit gravida.
-          </>
+          <ul className="py-4 text-sm flex flex-col gap-4">
+            <li className="flex flex-col gap-2">
+              <div className=" font-semibold">
+                Nottingham Trent University - Master's of Computer Science
+              </div>
+              <div className="px-4 flex gap-2 items-center">
+                {" "}
+                <span className="before:left-0 before:w-2 before:h-2 before:bg-primaryBold before:rounded-full before:block"></span>
+                Upper Second Class Degree (2:1 High)
+              </div>
+            </li>
+            <li className="flex flex-col gap-2">
+              <div className="items-center font-semibold">
+                City of Oxford College - ICT Level 3 Extended Diploma
+              </div>
+              <div className="flex gap-2  px-4 items-center">
+                <span className="before:left-0 before:w-2 before:h-2 before:bg-primaryBold before:rounded-full before:block"></span>
+                Tripple Distinction
+              </div>
+            </li>
+          </ul>
         );
       default:
         <>No Content Found</>;
@@ -96,7 +113,7 @@ export default function AboutSection({
     setSection(selectedSection);
   };
   return (
-    <section ref={forwardedRef} className="relative h-fit px-2 py-12">
+    <section ref={forwardedRef} className="relative h-fit py-8 ">
       <div className=" top-0 transform left-0 w-screen -translate-x-4 h-full absolute z-[-1] bg-gradient-to-br from-secondaryBold via-secondary via-50% to-secondary" />
       <div className="grid grid-rows-2 gap-2 h-full ">
         <div className=" row-span-2 flex flex-col h-48 relative aspect-auto">
@@ -135,11 +152,15 @@ export default function AboutSection({
             <div className="text-2xl font-semibold ">About me</div>
           </div>
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Convallis convallis tellus id interdum velit laoreet. Ullamcorper
-            eget nulla facilisi etiam dignissim. Lorem donec massa sapien
-            faucibus et molestie ac feugiat sed.{" "}
+            Hey, I'm Fernando, a full-stack developer with a solid understanding
+            of the software development life cycle and proficiency in multiple
+            programming languages.
+          </div>
+          <div>
+            I enjoy collaborating with teams or working independently,
+            showcasing versatility in diverse projects. While I excel in React
+            and Node, I'm eager to expand into .Net, Spring, or Laravel.
+            Continuous learning and growth drive my passion for web development.{" "}
           </div>
           <div>
             <div>
@@ -160,7 +181,7 @@ export default function AboutSection({
           </div>
         </div>
       </div>
-
+      {/* 
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
@@ -169,7 +190,7 @@ export default function AboutSection({
           fill="#7D4775"
           fill-opacity="1"
           d="M0,160L24,160C48,160,96,160,144,160C192,160,240,160,288,133.3C336,107,384,53,432,58.7C480,64,528,128,576,165.3C624,203,672,213,720,186.7C768,160,816,96,864,106.7C912,117,960,203,1008,240C1056,277,1104,267,1152,245.3C1200,224,1248,192,1296,165.3C1344,139,1392,117,1416,106.7L1440,96L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path>
-      </svg>
+      </svg> */}
     </section>
   );
 }

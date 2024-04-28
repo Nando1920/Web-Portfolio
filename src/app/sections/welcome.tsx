@@ -7,7 +7,6 @@ import { TbArrowBadgeDown } from "react-icons/tb";
 export default function WelcomeSection({ onClick }: { onClick: Function }) {
   const downloadPdf = () => {
     const pdfUrl = "/Fernando_TamayoCV2024.pdf";
-
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.download = pdfUrl.split("/").pop() ?? "My_CV";
@@ -18,7 +17,7 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
 
   return (
     <section className=" shadow-2xl h-[100svh]  flex justify-around items-center flex-col rounded-b-[40px]  bg-backgroundLight relative">
-      <div className="absolute w-screen h-12 z-[-1] bg-gradient-to-r from-secondaryBold to-secondary bottom-0" />
+      <div className="absolute w-screen h-full z-[-1] bg-gradient-to-r from-secondaryBold to-secondary bottom-0" />
       <div className="flex justify-start px-4">
         <div className="absolute  top-[5%] left-[15%] sm:left-auto sm:right-0 overflow-clip sm:overflow-visible">
           <div className="h-full w-full  bg-gradient-to-bl from-transparent via-backgroundLight  via-[70%] to-backgroundLight  absolute"></div>
@@ -28,7 +27,7 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
             priority
             className="opacity-1 rounded-full"
           />
-          <div className=" h-24 w-24 border-4 rounded-full bg-gradient-to-tr from-cyan-500  to-primary absolute top-[60%] right-[-10%] sm:right-[12%] sm:top-[80%] z-0 sm:h-32 sm:w-32 sm:border-8 border-backgroundLight" />
+          <div className=" h-24 w-24 border-4 rounded-full bg-gradient-to-tr from-cyan-400 via-secondary via-95%  to-primaryBold absolute top-[60%] right-[-10%] sm:right-[12%] sm:top-[80%] z-0 sm:h-32 sm:w-32 sm:border-8 border-backgroundLight" />
         </div>
         <div className=" flex flex-col justify-center gap-[24px] h-full relative pt-[60%] sm:pt-[0%] xl:pt-[0%]">
           <div className="flex flex-col gap-[16px]">

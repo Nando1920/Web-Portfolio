@@ -51,9 +51,8 @@ export default function Home() {
       <Navbar onClick={scrollToSection} />
       <WelcomeSection onClick={scrollToSection} />
 
-      <div className="px-4 pb-4 sm:px-10 lg:px-16 xl:py-48 flex flex-col ">
+      <div className="px-4  sm:px-10 lg:px-16 xl:py-48 flex flex-col ">
         <AboutSection forwardedRef={aboutRef} />
-
         <ProjectsSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />
       </div>
@@ -63,7 +62,7 @@ export default function Home() {
 
       <div
         onClick={scrollTop}
-        className={` transition-opacity duration-300 ${
+        className={` z-50 transition-opacity duration-300 ${
           scrollToTop ? "opacity-100" : "opacity-0 pointer-events-none"
         } shadow-md shadow-black/50 fixed bottom-4 right-4 flex justify-center items-center h-12 w-12 rounded-full bg-cyan-500`}>
         <FaArrowUp className=" text-backgroundLight" />

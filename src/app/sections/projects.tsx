@@ -47,6 +47,7 @@ export default function ProjectsSection({
       <div
         onClick={() => {
           setPosition(index);
+          setAuto(false);
         }}
         className={`imageCard w-[100%]  flex-shrink-0 shadow-md rounded-lg overflow-hidden ${
           position === index && "selected"
@@ -74,8 +75,8 @@ export default function ProjectsSection({
   }
 
   const handlers = useSwipeable({
-    onSwipedLeft: (eventData) => setNext(),
-    onSwipedRight: (eventData) => setPrev(),
+    onSwipedLeft: (eventData) => setNext(true),
+    onSwipedRight: (eventData) => setPrev(true),
   });
 
   useEffect(() => {
@@ -89,7 +90,9 @@ export default function ProjectsSection({
     <section
       {...handlers}
       ref={forwardedRef}
-      className=" relative flex flex-col items-center gap-4 h-fit py-8 px-4 sm:py-8">
+      className=" relative flex flex-col items-center gap-4 h-fit justify-between pb-8 px-4 sm:py-8">
+      <div className="shapedividers_com-6562 h-12 w-screen"></div>
+
       <div className=" top-0 transform w-screen h-full absolute z-[-1] bg-primary" />
       <div className="text-2xl font-semibold text-white w-full">Projects</div>
       <div className="flex items-center justify-center gap-4">

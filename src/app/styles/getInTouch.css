@@ -1,0 +1,51 @@
+.shapedividers_com-5885 {
+  overflow: hidden;
+  position: relative;
+}
+.shapedividers_com-5885::before {
+  content: "";
+  font-family: "shape divider from ShapeDividers.com";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  bottom: -0.1vw;
+  left: -0.1vw;
+  right: -0.1vw;
+  top: -0.1vw;
+  background-size: 100% 76px;
+  background-position: 50% 100%;
+  background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 381 77.25" preserveAspectRatio="none"><g fill="%232384ad"><path d="M0 68.78l381-33.86v42.33H0z"/><path d="M0 43.38l381-25.4v59.27H0z" opacity=".33"/><path d="M0 17.98L381 0v77.25H0z" opacity=".33"/></g></svg>');
+}
+
+@media (min-width: 2100px) {
+  .shapedividers_com-5885::before {
+    background-size: 100% calc(2vw + 76px);
+  }
+}
+
+.shapedividers_com-1532 {
+  overflow: hidden;
+  position: relative;
+}
+.shapedividers_com-1532::before {
+  content: "";
+  font-family: "shape divider from ShapeDividers.com";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  bottom: -0.1vw;
+  left: -0.1vw;
+  right: -0.1vw;
+  top: -0.1vw;
+  background-size: 100% 76px;
+  background-position: 50% 0%;
+  background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 381 77.25" preserveAspectRatio="none"><g fill="%232384ad"><path d="M381 8.47L0 42.33V0h381z"/><path d="M381 33.87L0 59.27V0h381z" opacity=".33"/><path d="M381 59.27L0 77.25V0h381z" opacity=".33"/></g></svg>');
+}
+
+@media (min-width: 2100px) {
+  .shapedividers_com-1532::before {
+    background-size: 100% calc(2vw + 76px);
+  }
+}

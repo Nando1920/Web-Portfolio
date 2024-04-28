@@ -97,7 +97,7 @@ export default function AboutSection({
   };
   return (
     <section ref={forwardedRef} className="relative h-fit px-2 py-12">
-      <div className=" top-0 transform left-0 w-screen -translate-x-4 h-full absolute z-[-1] bg-secondary" />
+      <div className=" top-0 transform left-0 w-screen -translate-x-4 h-full absolute z-[-1] bg-gradient-to-br from-secondaryBold via-secondary via-50% to-secondary" />
       <div className="grid grid-rows-2 gap-2 h-full ">
         <div className=" row-span-2 flex flex-col h-48 relative aspect-auto">
           <Image
@@ -160,6 +160,7 @@ export default function AboutSection({
           </div>
         </div>
       </div>
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"

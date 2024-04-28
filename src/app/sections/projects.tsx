@@ -20,15 +20,17 @@ export default function ProjectsSection({
   forwardedRef: LegacyRef<HTMLElement> | undefined;
 }) {
   const [position, setPosition] = useState(0);
-  const translate = position * 100;
-  const setNext = () => {
+  const [auto, setAuto] = useState(true);
+  const setNext = (manual?: boolean) => {
+    if (manual) setAuto(false);
+
     setPosition((position) =>
       position === projectsObj.projects.length - 1 ? 0 : position + 1
     );
   };
 
-  const setPrev = () => {
-    // clearInterval(1000);
+  const setPrev = (manual?: boolean) => {
+    if (manual) setAuto(false);
     setPosition(
       position === 0 ? projectsObj.projects.length - 1 : position - 1
     );
@@ -76,6 +78,13 @@ export default function ProjectsSection({
     onSwipedRight: (eventData) => setPrev(),
   });
 
+  useEffect(() => {
+    if (auto) {
+      const interval = setInterval(setNext, 3000);
+      return () => clearInterval(interval);
+    }
+  });
+
   return (
     <section
       {...handlers}
@@ -85,14 +94,17 @@ export default function ProjectsSection({
       <div className="text-2xl font-semibold text-white w-full">Projects</div>
       <div className="flex items-center justify-center gap-4">
         <FaChevronLeft
-          onClick={setPrev}
+          onClick={() => {
+            setPrev(true);
+          }}
           className="shadow p-1 w-6 h-6  z-20 bg-backgroundLight text-primary rounded-full"
         />
 
         <div className=" w-[60%] ">
           <div
             {...handlers}
-            className={`flex transform -translate-x-[${translate}%] transition-all duration-500`}>
+            className="flex transition-transform  duration-500"
+            style={{ transform: `translateX(-${position * 100}%)` }}>
             {projectsObj.projects.map((project, index) => {
               return <ProjectCard project={project} index={index} />;
             })}
@@ -100,7 +112,9 @@ export default function ProjectsSection({
         </div>
         <FaChevronRight
           className="shadow p-1 w-6 h-6 z-20  bg-backgroundLight text-primary rounded-full"
-          onClick={setNext}
+          onClick={() => {
+            setNext(true);
+          }}
         />
       </div>
     </section>

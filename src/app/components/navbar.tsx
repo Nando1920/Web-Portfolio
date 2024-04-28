@@ -74,7 +74,7 @@ export default function Navbar({ onClick }: { onClick: Function }) {
       <nav
         className={`flex justify-end sm:justify-between  items-center lg:px-12 sm:px-8 px-4 py-2 ${
           !isAtTop
-            ? "shadow-lg shadow-black-100 bg-white/80 "
+            ? "shadow-lg shadow-black-100 bg-white/60 "
             : "bg-transparent"
         }  text-lg fixed w-svw top-0 z-40 transition-shadow duration-300`}>
         <Link

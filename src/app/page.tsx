@@ -57,7 +57,7 @@ export default function Home() {
         <ProjectsSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />
       </div>
-      <div className="bg-primary text-backgroundLight h-24">
+      <div className="bg-primary text-backgroundLight h-24 flex items-center">
         Thank you for visiting
       </div>
 

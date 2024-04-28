@@ -18,7 +18,7 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
 
   return (
     <section className=" shadow-2xl h-[100svh]  flex justify-around items-center flex-col rounded-b-[40px]  bg-backgroundLight relative">
-      <div className="absolute w-screen h-12 z-[-1] bg-secondary bottom-0" />
+      <div className="absolute w-screen h-12 z-[-1] bg-gradient-to-r from-secondaryBold to-secondary bottom-0" />
       <div className="flex justify-start px-4">
         <div className="absolute  top-[5%] left-[15%] sm:left-auto sm:right-0 overflow-clip sm:overflow-visible">
           <div className="h-full w-full  bg-gradient-to-bl from-transparent via-backgroundLight  via-[70%] to-backgroundLight  absolute"></div>

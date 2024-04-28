@@ -7,6 +7,8 @@ import AboutSection from "./sections/about";
 import { FaArrowUp } from "react-icons/fa";
 import { useScrollContext } from "./scroll/scrollProvider";
 import ProjectsSection from "./sections/projects";
+import { CiLinkedin } from "react-icons/ci";
+import { FaGithub } from "react-icons/fa";
 
 export default function Home() {
   const contactFormRef = useRef<HTMLElement | null>(null);
@@ -56,8 +58,16 @@ export default function Home() {
         <ProjectsSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />
       </div>
-      <div className="bg-primary text-backgroundLight h-24 flex items-center">
-        Thank you for visiting
+      <div className="  bg-primary text-backgroundLight h-24 flex flex-col gap-2 items-center">
+        <div>Thank you for visiting, find me on</div>
+        <div className="flex gap-4">
+          <a href="https://www.linkedin.com/in/fernando-tamayo-ferrer-706b6113b/">
+            <CiLinkedin className="w-8 h-8" />
+          </a>
+          <a href="https://github.com/Nando1920">
+            <FaGithub className="w-8 h-8" />
+          </a>
+        </div>
       </div>
 
       <div

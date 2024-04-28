@@ -92,7 +92,7 @@ export default function ReachOutSection({
         <div className="flex flex-col w-full">
           <label className="font-semibold text-xs px-2">Message</label>
           <textarea
-            className="h-fit min-h-24 p-2 rounded-xl border-[1px] focus border-cyan-300 text-sm"
+            className="h-fit min-h-32 p-2 rounded-xl border-[1px] focus border-cyan-300 text-sm"
             name="message"
             onChange={handleInput}
             value={formData.message}

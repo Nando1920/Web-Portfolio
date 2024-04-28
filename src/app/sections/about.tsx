@@ -46,7 +46,7 @@ export default function AboutSection({
                 <li
                   key={index}
                   className="ml-2 mb-1 relative flex items-center gap-2 flex-nowrap text-nowrap">
-                  <span className="before:left-0 before:w-2 before:h-2 before:bg-violet-500 before:rounded-full before:block"></span>
+                  <span className="before:left-0 before:w-2 before:h-2 before:bg-primaryBold before:rounded-full before:block"></span>
                   {skill}
                 </li>
               );
@@ -95,7 +95,8 @@ export default function AboutSection({
     setSection(selectedSection);
   };
   return (
-    <section ref={forwardedRef} className="h-fit px-2 py-12">
+    <section ref={forwardedRef} className="relative h-fit px-2 py-12">
+      <div className=" top-0 transform left-0 w-screen -translate-x-4 h-full absolute z-[-1] bg-secondary" />
       <div className="grid grid-rows-2 gap-2 h-full ">
         <div className=" row-span-2 flex flex-col h-48 relative aspect-auto">
           <Image
@@ -124,8 +125,8 @@ export default function AboutSection({
             } inset-0  absolute `}
           />
         </div>
-        <div className="row-span-1 flex flex-col gap-4 bg-backgroundLight">
-          <div className="flex flex-row justify-start text-2xl w-full items-center text-violet-600">
+        <div className="row-span-1 flex flex-col gap-4 text-backgroundLight">
+          <div className="flex flex-row justify-start text-2xl w-full items-center ">
             <FaCode />
             <div className="text-2xl font-semibold ">About me</div>
           </div>
@@ -142,7 +143,7 @@ export default function AboutSection({
                 {navArray.map((item) => (
                   <li
                     key={item.section}
-                    className={`cursor-pointer hover:text-violet-600 ${
+                    className={`cursor-pointer hover:text-primary ${
                       section === item.section ? "font-semibold" : ""
                     }`}
                     onClick={() => handleSectionChange(item.section)}>

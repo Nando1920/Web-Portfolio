@@ -56,12 +56,14 @@ export default function ProjectsSection({
           placeholder="blur"
           className="absolute z-[-1] bg-cover"
         />
-        <div className="flex flex-col gap-1 px-4 py-2 bg-backgroundLight mt-36 rounded-t-xl h-full">
+        <div className="flex flex-col gap-1 p-4 bg-backgroundLight mt-36 rounded-t-xl h-full">
           <div className=" font-bold text-xl">{project.name}</div>
-          <div className=" text-cyan-600">{project.client}</div>
+          <div className=" text-primary">{project.client}</div>
 
           <div className="line-clamp-[8]">{project.text}</div>
-          <a href="#" className="text-blue-500 underline">
+          <a
+            href={`/projects?project=${project.name}`}
+            className="text-primaryBold underline">
             Find out more
           </a>
         </div>
@@ -78,14 +80,13 @@ export default function ProjectsSection({
     <section
       {...handlers}
       ref={forwardedRef}
-      className="  flex flex-col items-center gap-4  h-full py-4">
-      <div className="text-2xl font-semibold text-cyan-500 w-full">
-        Projects
-      </div>
+      className=" relative flex flex-col items-center gap-4 h-fit py-4 sm:py-8">
+      <div className=" top-0 transform w-screen h-full absolute z-[-1] bg-primary" />
+      <div className="text-2xl font-semibold text-white w-full">Projects</div>
       <div className="flex items-center justify-center gap-4">
         <FaChevronLeft
           onClick={setPrev}
-          className="shadow p-1 w-6 h-6  z-20 text-backgroundLight bg-cyan-500 rounded-full"
+          className="shadow p-1 w-6 h-6  z-20 bg-backgroundLight text-primary rounded-full"
         />
 
         <div className=" w-[60%] ">
@@ -98,7 +99,7 @@ export default function ProjectsSection({
           </div>
         </div>
         <FaChevronRight
-          className="shadow p-1 w-6 h-6 z-20  text-backgroundLight bg-cyan-500 rounded-full"
+          className="shadow p-1 w-6 h-6 z-20  bg-backgroundLight text-primary rounded-full"
           onClick={setNext}
         />
       </div>

@@ -16,6 +16,11 @@ const config: Config = {
         backgroundDark: {
           DEFAULT: "rgb(12, 12, 12)",
         },
+        primaryLight: { DEFAULT: "rgb(33, 142, 181)" },
+        primary: { DEFAULT: "rgb(35, 132, 173)", DARK: "rgb(12, 12, 12)" },
+        secondary: { DEFAULT: "rgb(125, 71, 117)", DARK: "rgb(12, 12, 12)" },
+        primaryBold: { DEFAULT: "rgb(42, 100, 151)", DARK: "rgb(12, 12, 12)" },
+        secondaryBold: { DEFAULT: "rgb(75, 54, 92)", DARK: "rgb(12, 12, 12)" },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

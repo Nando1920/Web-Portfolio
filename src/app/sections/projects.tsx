@@ -1,12 +1,12 @@
 "use client";
 import { LegacyRef, useEffect, useState } from "react";
-import tempImage from "../../../public/aboutme.jpg";
 import Image from "next/image";
 import projectsObj from "../../assets/json/projects.json";
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import "../styles/projects.css";
 import { useSwipeable } from "react-swipeable";
+import { getProjectImg } from "../utils/utils";
 
 interface IProject {
   name: string;
@@ -46,14 +46,24 @@ export default function ProjectsSection({
         onClick={() => {
           setPosition(index);
         }}
-        className={`imageCard w-[100%]  flex-shrink-0 shadow-md rounded-md overflow-hidden ${
+        className={`imageCard w-[100%]  flex-shrink-0 shadow-md rounded-lg overflow-hidden ${
           position === index && "selected"
         }`}>
-        <Image src={tempImage} alt="temp" className="" />
-        <div className="px-4 py-2">
-          <div>{project.name}</div>
-          <div>{project.client}</div>
-          <div className="max-h-64 text-ellipsis">{project.text}</div>
+        <Image
+          loading="lazy"
+          src={getProjectImg(project.name)}
+          alt="temp"
+          placeholder="blur"
+          className="absolute z-[-1] bg-cover"
+        />
+        <div className="flex flex-col gap-1 px-4 py-2 bg-backgroundLight mt-36 rounded-t-xl h-full">
+          <div className=" font-bold text-xl">{project.name}</div>
+          <div className=" text-cyan-600">{project.client}</div>
+
+          <div className="line-clamp-[8]">{project.text}</div>
+          <a href="#" className="text-blue-500 underline">
+            Find out more
+          </a>
         </div>
       </div>
     );
@@ -81,7 +91,7 @@ export default function ProjectsSection({
         <div className=" w-[60%] ">
           <div
             {...handlers}
-            className={`flex -translate-x-[${translate}%] transition-all duration-500`}>
+            className={`flex transform -translate-x-[${translate}%] transition-all duration-500`}>
             {projectsObj.projects.map((project, index) => {
               return <ProjectCard project={project} index={index} />;
             })}

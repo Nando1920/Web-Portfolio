@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
   });
 
   try {
-    await transporter.sendMail({
+    const resp = await transporter.sendMail({
       from: myEmail,
       to: myEmail,
       replyTo: email,
@@ -26,6 +26,17 @@ export async function POST(request: NextRequest) {
         <p>${message} </p>
         `,
     });
+
+    if (resp.accepted.includes(email)) {
+      await transporter.sendMail({
+        from: myEmail,
+        to: email,
+        subject: `Contact confirmaton`,
+        html: `
+          <p>Thanks ${name} </p>
+          `,
+      });
+    }
 
     return NextResponse.json({ message: "Success: email was sent" });
   } catch (error) {

@@ -16,8 +16,6 @@ export default function Home() {
   const projectsormRef = useRef<HTMLElement | null>(null);
   const { scrollToTop } = useScrollContext();
 
-  console.log("reload");
-
   const scrollToSection = (section: string) => {
     switch (section) {
       case "contact":

@@ -40,7 +40,7 @@ export default function ReachOutSection({
 }: {
   forwardedRef: LegacyRef<HTMLElement> | undefined;
 }) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<any>({
     name: "",
     email: "",
     message: "",
@@ -52,19 +52,44 @@ export default function ReachOutSection({
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
 
-    setFormData((prevState) => ({
+    setFormData((prevState: any) => ({
       ...prevState,
       [fieldName]: fieldValue,
     }));
   };
 
-  const sendEmail = () => {
+  const handleSubmit = async () => {
     setLoading(true);
 
-    // Simulate sending email
-    setTimeout(() => {
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in all fields");
       setLoading(false);
-    }, 2000);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=utf8",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`response status: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+
+      alert("Message successfully sent");
+      setFormData({ name: "", email: "", message: "" }); // Clear form after successful submission
+    } catch (err) {
+      console.error(err);
+      alert("Error sending message. Please try again later");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -101,7 +126,7 @@ export default function ReachOutSection({
         </div>
       </div>
       <button
-        onClick={sendEmail}
+        onClick={handleSubmit}
         className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl px-12 py-2 sm:p-4 bg-cyan-300 sm:w-38 text-white">
         {loading ? (
           <AiOutlineLoading3Quarters className="animate-spin" />

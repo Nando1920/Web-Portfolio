@@ -109,7 +109,13 @@ export default function ProjectsSection({
             className="flex transition-transform  duration-500"
             style={{ transform: `translateX(-${position * 100}%)` }}>
             {projectsObj.projects.map((project, index) => {
-              return <ProjectCard project={project} index={index} />;
+              return (
+                <ProjectCard
+                  key={project.name}
+                  project={project}
+                  index={index}
+                />
+              );
             })}
           </div>
         </div>

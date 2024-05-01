@@ -4,11 +4,11 @@
 
 @layer utilities {
   .navOption {
-    @apply text-sm relative transition-colors duration-200 hover:text-cyan-400 py-2;
+    @apply text-sm relative transition-colors duration-200 hover:text-primary py-2;
   }
 
   .navOption::after {
-    @apply content-['']  left-0 bottom-[15%] bg-cyan-400 h-[2px] w-[0%] absolute transition-all duration-200 border-0 rounded   shadow-cyan-400;
+    @apply content-['']  left-0 bottom-[15%] bg-primary h-[2px] w-[0%] absolute transition-all duration-200 border-0 rounded   shadow-cyan-400;
   }
 
   .navOption::after:hover {

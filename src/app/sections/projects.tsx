@@ -90,7 +90,7 @@ export default function ProjectsSection({
     <section
       {...handlers}
       ref={forwardedRef}
-      className=" relative flex flex-col items-center gap-4 h-fit justify-between pb-8 px-4 sm:py-8">
+      className=" relative flex flex-col items-center gap-4 h-fit justify-between pb-8 px-4 ">
       <div className="shapedividers_com-6562 h-12 w-screen"></div>
 
       <div className=" top-0 transform w-screen h-full absolute z-[-1] bg-primary" />

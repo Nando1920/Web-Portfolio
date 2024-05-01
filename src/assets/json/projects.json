@@ -11,9 +11,9 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac orce phasellus egestas tellus rutrum tellus pellentesque eu. Dui nunc mattis enim ut tellus elementum sagittis. Habitasse platea dictumst quisque sagittis. Magnis dis parturient montes nascetur ridiculus mus mauris. Eu mi bibendum neque egestas congue quisque egestas. Enim facilisis gravida neque convallis a"
     },
     {
-      "client": "N/A",
-      "name": "Coming Soon",
-      "text": ""
+      "client": "Personal",
+      "name": "Portfolio",
+      "text": "My web portfolio built with Next.js showcases my skills and projects in an engaging and responsive manner. Leveraging the power of Next.js and its server-side rendering capabilities, I've crafted a dynamic platform that loads swiftly and delivers a seamless user experience. With a focus on customization and performance, this project reflects my dedication to quality and innovation in web development."
     }
   ]
 }

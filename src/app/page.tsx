@@ -51,19 +51,19 @@ export default function Home() {
       <Navbar onClick={scrollToSection} />
       <WelcomeSection onClick={scrollToSection} />
 
-      <div className="px-4  sm:px-10 lg:px-16 xl:py-48 flex flex-col ">
+      <div className="px-4 sm:px-10 flex flex-col ">
         <AboutSection forwardedRef={aboutRef} />
         <ProjectsSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />
       </div>
       <div className="  bg-primary text-backgroundLight h-24 flex flex-col gap-2 items-center">
-        <div>Thank you for visiting, find me on</div>
-        <div className="flex gap-4">
+        <div className="sm:text-lg">Thank you for visiting, find me on</div>
+        <div className="flex gap-4 sm:gap-6">
           <a href="https://www.linkedin.com/in/fernando-tamayo-ferrer-706b6113b/">
-            <CiLinkedin className="w-8 h-8" />
+            <CiLinkedin className="w-8 h-8 sm:w-10 sm:h-10" />
           </a>
           <a href="https://github.com/Nando1920">
-            <FaGithub className="w-8 h-8" />
+            <FaGithub className="w-8 h-8 sm:w-10 sm:h-10" />
           </a>
         </div>
       </div>

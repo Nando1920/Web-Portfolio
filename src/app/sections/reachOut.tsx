@@ -22,7 +22,11 @@ export function TextField({
 }: ITextField) {
   return (
     <div className="flex flex-col w-full">
-      {label && <label className="text-xs font-semibold px-2">{label}</label>}
+      {label && (
+        <label className="text-xs font-semibold px-2 sm:text-base">
+          {label}
+        </label>
+      )}
       <input
         className="p-2 rounded-xl border-[1px] focus border-cyan-300 text-sm"
         type={type}
@@ -98,7 +102,7 @@ export default function ReachOutSection({
       className="flex flex-col items-center gap-[32px] relative">
       <div className="shapedividers_com-1532 h-12   w-screen"></div>
       <h1 className="text-2xl text-cyan-500">Get in touch</h1>
-      <div className="flex flex-col items-center w-full gap-5">
+      <div className="flex flex-col items-center w-full gap-5 sm:w-[50%]">
         <TextField
           value={formData.name}
           name={"name"}
@@ -115,9 +119,11 @@ export default function ReachOutSection({
           placeholder="Enter your email..."
         />
         <div className="flex flex-col w-full">
-          <label className="font-semibold text-xs px-2">Message</label>
+          <label className="font-semibold text-xs px-2 sm:text-base">
+            Message
+          </label>
           <textarea
-            className="h-fit min-h-32 p-2 rounded-xl border-[1px] focus border-cyan-300 text-sm"
+            className="h-fit min-h-32 sm:min-h-48 p-2 rounded-xl border-[1px] focus border-cyan-300 text-sm"
             name="message"
             onChange={handleInput}
             value={formData.message}

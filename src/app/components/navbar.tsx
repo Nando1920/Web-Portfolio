@@ -72,17 +72,15 @@ export default function Navbar({ onClick }: { onClick: Function }) {
     <>
       {burgerButton()}
       <nav
-        className={`flex justify-end sm:justify-between  items-center lg:px-12 sm:px-8 px-4 py-2 ${
+        className={`flex justify-end sm:justify-between items-center px-4 py-2 sm:px-8  ${
           !isAtTop
             ? "shadow-lg shadow-black-100 bg-white/60 "
             : "bg-transparent"
-        }  text-lg fixed w-svw top-0 z-40 transition-shadow duration-300`}>
-        <Link
-          href={"/"}
-          className=" text-cyan-500 scale-[200%] text-sm hover:text-cyan-600 transition-colors ">
+        } fixed w-svw top-0 z-40 transition-shadow duration-300`}>
+        <Link href={"/"} className="scale-[200%]  sm:scale-[250%]">
           <HeaderLogo />
         </Link>
-        <div className="gap-6 hidden sm:flex">
+        <div className="gap-6 hidden sm:flex sm:gap-10">
           {navArray.map((item) => {
             return (
               <div
@@ -90,7 +88,7 @@ export default function Navbar({ onClick }: { onClick: Function }) {
                   onClick(item.scroll);
                 }}
                 key={item.name}
-                className="navOption">
+                className="navOption sm:text-xl">
                 {item.name}
               </div>
             );

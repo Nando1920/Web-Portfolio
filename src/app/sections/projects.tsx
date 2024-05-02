@@ -1,5 +1,5 @@
 "use client";
-import { LegacyRef, useEffect, useState } from "react";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import projectsObj from "../../assets/json/projects.json";
 import { FaChevronRight, FaCode } from "react-icons/fa";
@@ -9,6 +9,7 @@ import { useSwipeable } from "react-swipeable";
 import { getProjectImg } from "../utils/utils";
 import { CgDetailsMore } from "react-icons/cg";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface IProject {
   name: string;
@@ -48,11 +49,17 @@ export default function ProjectsSection({
     index: number;
     transition: boolean;
   }) {
-    if (!transition) {
-      setAuto(false);
-    }
+    const ref = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+      target: ref,
+      offset: ["0 1", "1.33 1"],
+    });
+    const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+    const ScaleProgress = useTransform(scrollYProgress, [0, 1], [0.5, 0.99]);
+
     return (
-      <div
+      <motion.div
+        ref={ref}
         onClick={() => {
           if (transition) {
             setPosition(index);
@@ -60,10 +67,14 @@ export default function ProjectsSection({
           } else {
           }
         }}
+        style={{
+          opacity: !transition ? opacityProgress : "none",
+          scale: !transition ? ScaleProgress : "none",
+        }}
         className={`${
           transition
-            ? "imageCard w-[100%]  flex-shrink-0 shadow-md rounded-lg overflow-hidden"
-            : "w-[100%] overflow-hidden scale-100 md:min-w-[200px] lg:min-w-[250px] xl:min-w-[350px] "
+            ? "imageCard w-[100%]  flex-shrink-0 shadow-lg   rounded-lg overflow-hidden"
+            : "shadow-lg w-[100%] overflow-hidden scale-100 md:min-w-[300px] lg:min-w-[250px] xl:min-w-[350px] 2xl:min-w-[400px]"
         } ${position === index && transition && "selected sm:selected"} `}>
         <Image
           loading="lazy"
@@ -93,7 +104,7 @@ export default function ProjectsSection({
             Find out more
           </a>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
@@ -101,9 +112,8 @@ export default function ProjectsSection({
     onSwipedLeft: (eventData) => setNext(true),
     onSwipedRight: (eventData) => setPrev(true),
   });
-
   useEffect(() => {
-    if (auto) {
+    if (auto && window.innerWidth < 768) {
       const interval = setInterval(setNext, 3000);
       return () => clearInterval(interval);
     }
@@ -113,15 +123,15 @@ export default function ProjectsSection({
     <section
       {...handlers}
       ref={forwardedRef}
-      className=" relative flex flex-col items-center gap-4 h-fit justify-between pb-8 px-4 ">
+      className=" relative flex flex-col items-center gap-8 h-fit justify-between pb-8 px-4 ">
       <div className="shapedividers_com-6562 h-12 w-screen"></div>
 
       <div className=" top-0 transform w-screen h-full absolute z-[-1] bg-primary" />
-      <div className="text-2xl sm:text-4xl font-semibold text-white w-full">
+      <div className="text-2xl sm:text-4xl font-semibold text-white  static left-32">
         Projects
       </div>
 
-      <div className="md:grid md:grid-cols-3 gap-24 hidden h-fit  ">
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-24  h-fit  ">
         {projectsObj.projects.map((project, index) => {
           return (
             <ProjectCard

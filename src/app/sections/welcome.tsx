@@ -19,7 +19,7 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
     <section className=" shadow-2xl h-[100svh]  flex justify-around items-center sm:items-start flex-col rounded-b-[40px] sm:rounded-b-[72px]  bg-backgroundLight relative">
       <div className="absolute w-screen h-full z-[-1] bg-gradient-to-r from-secondaryBold to-secondary bottom-0" />
       <div className="flex justify-start px-4 sm:px-12 xl:px-24 2xl:px-52 ">
-        <div className="absolute  top-[5%] sm:top-[15%] left-[15%] sm:left-auto sm:right-10 overflow-clip sm:overflow-visible sm:scale-110 2xl:scale-150 2xl:top-[20%] 2xl:right-[10%]">
+        <div className="absolute  top-[5%] sm:top-[15%] left-[15%] sm:left-auto sm:right-10 overflow-clip sm:overflow-visible sm:scale-110 2xl:scale-125 2xl:top-[20%] 2xl:right-[10%]">
           <div className="h-full w-full  bg-gradient-to-bl from-transparent via-backgroundLight  via-[70%] to-backgroundLight  absolute"></div>
           <Image
             src={Me}
@@ -31,11 +31,11 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
         </div>
         <div className="flex flex-col justify-center gap-[24px] h-full relative pt-[60%] sm:pt-[20%]  ">
           <div className="flex flex-col gap-[16px] 2xl:gap-[32px]">
-            <div className="text-xl sm:text-3xl 2xl:text-5xl">
+            <div className="text-xl sm:text-3xl 2xl:text-4xl">
               Hello there, I'm{" "}
               <span className="nameMain font-bold">Fernando</span>
             </div>
-            <div className="font-medio xl:text-8xl md:text-7xl 2xl:text-9xl text-5xl flex flex-col w-[280px] md:w-[550px] xl:w-[720px] 2xl:w-[1000px]">
+            <div className="font-medio xl:text-8xl md:text-7xl 2xl:text-8xl text-5xl flex flex-col w-[280px] md:w-[550px] xl:w-[720px] 2xl:w-[800px]">
               <div className="partialUnder text-cyan-500 relative">
                 Full-Stack
               </div>

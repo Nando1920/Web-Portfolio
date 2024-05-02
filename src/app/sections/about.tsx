@@ -1,5 +1,5 @@
 "use client";
-import { LegacyRef, useEffect, useState } from "react";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaCode } from "react-icons/fa";
 import skillsImage from "../../../public/aboutme.jpg";
@@ -7,6 +7,7 @@ import experienceImage from "../../../public/exp.webp";
 import educationImage from "../../../public/education.jpg";
 import wave from "../../../public/wave.svg";
 import "../styles/aboutMe.css";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function AboutSection({
   forwardedRef,
@@ -112,41 +113,57 @@ export default function AboutSection({
     if (selectedSection !== section) setMask(section);
     setSection(selectedSection);
   };
+
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.25 1"],
+  });
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+  const ScaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 0.99]);
   return (
-    <section ref={forwardedRef} className="relative h-fit py-8 ">
+    <section
+      ref={forwardedRef}
+      className="relative h-fit py-8 sm:py-16 lg:px-20">
       <div className=" top-0 transform left-0 w-screen -translate-x-4 sm:-translate-x-10 h-full absolute z-[-1] bg-gradient-to-br from-secondaryBold via-secondary via-50% to-secondary" />
-      <div className="grid grid-rows-2 gap-2 h-full ">
-        <div className=" row-span-2 flex flex-col h-48 relative aspect-auto">
+      <motion.div
+        ref={ref}
+        style={{ opacity: opacityProgress }}
+        className="grid grid-rows-2 gap-2 h-full md:grid-cols-2 md:grid-rows-1 md:gap-12 md:min-h-[500px]  items-center">
+        <div className=" row-span-2 flex flex-col h-48 sm:h-[300px] xl:h-[400px]  relative aspect-auto sm:row-span-1 ">
           <Image
             src={skillsImage}
-            alt="56564"
+            alt="Skills Image"
             placeholder="blur"
+            layout="fill"
             className={`h-full ${
-              section === "skills" ? "unmasked " : "masked"
-            } ${mask !== "skills" ? "hiddenImg" : ""}   inset-0 absolute `}
+              section === "skills" ? "unmasked" : "masked"
+            } ${mask !== "skills" ? "hiddenImg" : ""} absolute `}
           />
+
           <Image
             src={experienceImage}
-            alt="56564"
+            alt="Experience Image"
             placeholder="blur"
+            layout="fill"
             className={`h-full ${
-              section === "experience" ? "unmasked  " : "masked "
-            }   ${mask !== "experience" ? "hiddenImg " : ""} inset-0 absolute `}
+              section === "experience" ? "unmasked" : "masked"
+            } ${mask !== "experience" ? "hiddenImg" : ""} absolute`}
           />
+
           <Image
             src={educationImage}
-            alt="56564"
+            alt="Education Image"
             placeholder="blur"
+            layout="fill"
             className={`h-full ${
-              section === "education" ? "unmasked  " : "masked "
+              section === "education" ? "unmasked" : "masked"
             } ${
-              mask !== "education" && section !== "education"
-                ? "hiddenImg "
-                : ""
-            } inset-0  absolute `}
+              mask !== "education" && section !== "education" ? "hiddenImg" : ""
+            } absolute`}
           />
         </div>
-        <div className="row-span-1 flex flex-col gap-4 text-backgroundLight">
+        <div className="row-span-1 flex flex-col gap-4 text-backgroundLight min-h-[550px]:">
           <div className="flex flex-row justify-start text-2xl w-full items-center ">
             <FaCode />
             <div className="text-2xl font-semibold ">About me</div>
@@ -180,7 +197,7 @@ export default function AboutSection({
             <div>{getContent(section)}</div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

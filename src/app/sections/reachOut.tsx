@@ -1,7 +1,8 @@
 "use client";
-import { LegacyRef, useRef, useState } from "react";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import "../styles/getInTouch.css";
+import { useInView, useAnimation, motion } from "framer-motion";
 
 interface ITextField {
   value: string;
@@ -96,13 +97,33 @@ export default function ReachOutSection({
     setLoading(false);
   };
 
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
+
+  const controller = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controller.start("visible");
+    }
+  }, [inView]);
+
   return (
     <section
       ref={forwardedRef}
       className="flex flex-col items-center gap-[32px] relative">
       <div className="shapedividers_com-1532 h-12   w-screen"></div>
       <h1 className="text-2xl text-cyan-500">Get in touch</h1>
-      <div className="flex flex-col items-center w-full gap-5 sm:w-[50%]">
+      <motion.div
+        ref={ref}
+        variants={{
+          hidden: { opacity: 0, y: 75 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial="hidden"
+        animate={controller}
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className="flex flex-col items-center w-full gap-5 sm:w-[50%]">
         <TextField
           value={formData.name}
           name={"name"}
@@ -130,7 +151,7 @@ export default function ReachOutSection({
             placeholder="Leave a message..."
           />
         </div>
-      </div>
+      </motion.div>
       <button
         onClick={handleSubmit}
         className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl px-12 py-2 sm:p-4 bg-cyan-300 sm:w-38 text-white">

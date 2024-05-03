@@ -7,7 +7,13 @@ import experienceImage from "../../../public/exp.webp";
 import educationImage from "../../../public/education.jpg";
 import wave from "../../../public/wave.svg";
 import "../styles/aboutMe.css";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  useInView,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 export default function AboutSection({
   forwardedRef,
@@ -115,12 +121,16 @@ export default function AboutSection({
   };
 
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1.25 1"],
-  });
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
-  const ScaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 0.99]);
+  const inView = useInView(ref, { once: true });
+
+  const controller = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controller.start("visible");
+    }
+  }, [inView]);
+
   return (
     <section
       ref={forwardedRef}
@@ -128,7 +138,13 @@ export default function AboutSection({
       <div className=" top-0 transform left-0 w-screen -translate-x-4 sm:-translate-x-10 h-full absolute z-[-1] bg-gradient-to-br from-secondaryBold via-secondary via-50% to-secondary" />
       <motion.div
         ref={ref}
-        style={{ opacity: opacityProgress }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        initial="hidden"
+        animate={controller}
+        transition={{ duration: 0.5, delay: 0.33 }}
         className="grid grid-rows-2 gap-2 h-full md:grid-cols-2 md:grid-rows-1 md:gap-12 md:min-h-[500px]  items-center">
         <div className=" row-span-2 flex flex-col h-48 sm:h-[300px] xl:h-[400px]  relative aspect-auto sm:row-span-1 ">
           <Image

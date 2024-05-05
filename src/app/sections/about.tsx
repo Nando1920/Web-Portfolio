@@ -71,6 +71,7 @@ export default function AboutSection({
               </div>
               <div className="px-8">Aug 2022 - Present</div>
             </li>
+            el
           </ul>
         );
       case "education":
@@ -78,7 +79,7 @@ export default function AboutSection({
           <ul className="py-4 text-sm flex flex-col gap-4">
             <li className="flex flex-col gap-2">
               <div className=" font-semibold">
-                Nottingham Trent University - Master's of Computer Science
+                Nottingham Trent University - Master&apos;s of Computer Science
               </div>
               <div className="px-4 flex gap-2 items-center">
                 {" "}
@@ -129,7 +130,7 @@ export default function AboutSection({
     if (inView) {
       controller.start("visible");
     }
-  }, [inView]);
+  }, [inView, controller]);
 
   return (
     <section
@@ -185,14 +186,14 @@ export default function AboutSection({
             <div className="text-2xl font-semibold ">About me</div>
           </div>
           <div>
-            Hey, I'm Fernando, a full-stack developer with a solid understanding
-            of the software development life cycle and proficiency in multiple
-            programming languages.
+            Hey, I&apos;m Fernando, a full-stack developer with a solid
+            understanding of the software development life cycle and proficiency
+            in multiple programming languages.
           </div>
           <div>
             I enjoy collaborating with teams or working independently,
             showcasing versatility in diverse projects. While I excel in React
-            and Node, I'm eager to expand into .Net, Spring, or Laravel.
+            and Node, I&apos;m eager to expand into .Net, Spring, or Laravel.
             Continuous learning and growth drive my passion for web development.{" "}
           </div>
           <div>

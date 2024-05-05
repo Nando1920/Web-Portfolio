@@ -40,7 +40,7 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
           className="flex flex-col justify-center gap-[24px] h-full relative pt-[60%] sm:pt-[20%]  ">
           <div className="flex flex-col gap-[16px] 2xl:gap-[32px]">
             <div className="text-xl sm:text-3xl 2xl:text-4xl">
-              Hello there, I'm{" "}
+              Hello there, I&apos;m{" "}
               <span className="nameMain font-bold">Fernando</span>
             </div>
             <div className="font-medio xl:text-8xl md:text-7xl 2xl:text-8xl text-5xl flex flex-col w-[280px] md:w-[550px] xl:w-[720px] 2xl:w-[800px]">

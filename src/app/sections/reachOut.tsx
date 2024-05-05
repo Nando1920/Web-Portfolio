@@ -106,7 +106,7 @@ export default function ReachOutSection({
     if (inView) {
       controller.start("visible");
     }
-  }, [inView]);
+  }, [inView, controller]);
 
   return (
     <section

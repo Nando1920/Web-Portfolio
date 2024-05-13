@@ -4,6 +4,7 @@ import "./globals.css";
 import { ScrollProvider } from "./scroll/scrollProvider";
 import { ScrollWrapper } from "./scroll/scrollWrapper";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <ScrollProvider>
         <ScrollWrapper>
           <SpeedInsights />
+          <Analytics />
           <body className={inter.className}>{children}</body>
         </ScrollWrapper>
       </ScrollProvider>

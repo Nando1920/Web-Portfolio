@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@preact/signals": "^1.2.3",
+    "@vercel/speed-insights": "^1.0.10",
     "framer-motion": "^11.0.27",
     "next": "14.1.4",
     "nodemailer": "^6.9.13",

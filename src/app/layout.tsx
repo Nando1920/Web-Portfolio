@@ -3,12 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ScrollProvider } from "./scroll/scrollProvider";
 import { ScrollWrapper } from "./scroll/scrollWrapper";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Fernando's personal portfolio",
+  title: "Fernando's Portfolio",
+  description: "developer personal portfolio",
 };
 
 export default function RootLayout({
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <ScrollProvider>
         <ScrollWrapper>
+          <SpeedInsights />
           <body className={inter.className}>{children}</body>
         </ScrollWrapper>
       </ScrollProvider>

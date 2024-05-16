@@ -5,7 +5,13 @@ import { useEffect, useState } from "react";
 import HeaderLogo from "@/assets/img/headerLogo";
 import { useScrollContext } from "../scroll/scrollProvider";
 
-export default function Navbar({ onClick }: { onClick: Function }) {
+export default function Navbar({
+  onClick,
+  hideSections,
+}: {
+  onClick?: Function;
+  hideSections?: boolean;
+}) {
   const { atTop, progress } = useScrollContext();
   const [isAtTop, setIsAtTop] = useState(atTop);
   const [hidden, setHidden] = useState(true);
@@ -55,7 +61,7 @@ export default function Navbar({ onClick }: { onClick: Function }) {
                 key={item.name}
                 className={`text-white text-nowrap text-lg min-w-fit overflow-hidden`}
                 onClick={() => {
-                  onClick(item.scroll);
+                  if (onClick) onClick(item.scroll);
                   setHidden(true);
                   setButtonClass("bar unclicked");
                 }}>
@@ -70,7 +76,7 @@ export default function Navbar({ onClick }: { onClick: Function }) {
 
   return (
     <>
-      {burgerButton()}
+      {!hideSections && burgerButton()}
       <nav
         className={`flex justify-end sm:justify-between items-center px-4 py-2 sm:px-8  ${
           !isAtTop
@@ -80,22 +86,24 @@ export default function Navbar({ onClick }: { onClick: Function }) {
         <Link href={"/"} className="scale-[200%]  sm:scale-[250%]">
           <HeaderLogo />
         </Link>
-        <div className="gap-6 hidden sm:flex sm:gap-10">
-          {navArray.map((item) => {
-            return (
-              <div
-                onClick={() => {
-                  onClick(item.scroll);
-                }}
-                key={item.name}
-                className="navOption sm:text-xl">
-                {item.name}
-              </div>
-            );
-          })}
-        </div>
+        {!hideSections && (
+          <div className="gap-6 hidden sm:flex sm:gap-10">
+            {navArray.map((item) => {
+              return (
+                <div
+                  onClick={() => {
+                    if (onClick) onClick(item.scroll);
+                  }}
+                  key={item.name}
+                  className="navOption sm:text-xl">
+                  {item.name}
+                </div>
+              );
+            })}
+          </div>
+        )}
       </nav>
-      {horizontalPanel()}
+      {!hideSections && horizontalPanel()}
     </>
   );
 }

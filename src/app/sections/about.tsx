@@ -71,7 +71,6 @@ export default function AboutSection({
               </div>
               <div className="px-8">Aug 2022 - Present</div>
             </li>
-            el
           </ul>
         );
       case "education":

@@ -4,7 +4,7 @@ export default function ProjectBar() {
   return (
     <div className="flex gap-5 md:flex-col row-span-1">
       {projectsObj.projects.map((project) => {
-        return <div>{project.name}</div>;
+        return <div key={project.name}>{project.name}</div>;
       })}
     </div>
   );

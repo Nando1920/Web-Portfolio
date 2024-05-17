@@ -131,7 +131,7 @@ export default function ProjectsSection({
         Projects
       </div>
 
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-24  h-fit  ">
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-auto gap-24  h-fit  ">
         {projectsObj.projects.map((project, index) => {
           return (
             <ProjectCard

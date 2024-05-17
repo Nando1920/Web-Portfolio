@@ -4,7 +4,8 @@
       "client": "Soft Pauer",
       "name": "EventR",
       "text": "EventR is the latest App from Soft Pauer, which is set to completely change the way individuals and companies manage their corporate and personal travel and event plans.The EventR app provides a simple user experience, where users can add their travel plans, including flights, hire cars, hotels and events, once your travel plans have been added to the app, they can then be shared with your travel partners or family, all those important details such as flight numbers and hotel bookings are then displayed on a timeline to all your fellow travellers.",
-      "link": "https://apps.apple.com/gb/app/eventr-team/id6466819926"
+      "link": "https://eventr.softpauer.com/",
+      "usefulLinks": ["https://apps.apple.com/gb/app/eventr-team/id6466819926"]
     },
 
     {
@@ -12,12 +13,6 @@
       "name": "Portfolio",
       "text": "My web portfolio built with Next.js showcases my skills and projects in an engaging and responsive manner. Leveraging the power of Next.js and its server-side rendering capabilities, I've crafted a dynamic platform that loads swiftly and delivers a seamless user experience. With a focus on customization and performance, this project reflects my dedication to quality and innovation in web development.",
       "link": "https://github.com/Nando1920/Web-Portfolio"
-    },
-    {
-      "client": "Karen Cuenca",
-      "name": "Templates (Pending name)",
-      "text": "E-commerce site coming soon",
-      "link": ""
     }
   ]
 }

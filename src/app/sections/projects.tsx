@@ -84,11 +84,11 @@ export default function ProjectsSection({
           className="absolute z-[-1] bg-cover "
         />
         <div className=" hidden opacity-0 md:flex justify-center items-center gap-10  absolute z-[1] bg-cover transition-color duration-300  hover:bg-black hover:opacity-60  w-full h-full">
-          <Link
+          {/* <Link
             href={`/projects?project=${project.name}`}
             className="rounded-full border-2  p-2">
             <CgDetailsMore className="w-10 h-10  text-white" />
-          </Link>
+          </Link> */}
           <Link href={project.link} className="rounded-full border-2 p-2">
             <FaCode className="w-10 h-10  text-white" />
           </Link>
@@ -98,11 +98,11 @@ export default function ProjectsSection({
           <div className=" text-primary md:text-lg">{project.client}</div>
 
           <div className="line-clamp-[8] md:hidden">{project.text}</div>
-          <a
+          {/* <a
             href={`/projects?project=${project.name}`}
             className="text-primaryBold underline md:hidden">
             Find out more
-          </a>
+          </a> */}
         </div>
       </motion.div>
     );
@@ -131,7 +131,7 @@ export default function ProjectsSection({
         Projects
       </div>
 
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-1 gap-24  h-fit  ">
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-auto gap-24  h-fit  ">
         {projectsObj.projects.map((project, index) => {
           return (
             <ProjectCard

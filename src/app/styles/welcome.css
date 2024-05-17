@@ -25,6 +25,10 @@
         background-position: 400% 0;
       }
     }
+
+    .contactButton::before {
+      animation: move-bg 10s infinite linear;
+    }
   }
 
   .scrollArrow {

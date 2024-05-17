@@ -37,7 +37,7 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.5 }}
-          className="flex flex-col justify-center gap-[24px] h-full relative pt-[60%] sm:pt-[20%]  ">
+          className="flex flex-col justify-center gap-[24px] h-full relative pt-[60%] sm:pt-[20%]">
           <div className="flex flex-col gap-[16px] 2xl:gap-[32px]">
             <div className="text-xl sm:text-3xl 2xl:text-4xl">
               Hello there, I&apos;m{" "}
@@ -47,7 +47,7 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
               <div className="partialUnder text-cyan-500 relative">
                 Full-Stack
               </div>
-              <div className=" text-right">Developer</div>
+              <div className="text-right">Developer</div>
             </div>
             <div className="text-sm font-normal sm:max-w-2xl sm:text-xl 2xl:max-w-5xl">
               Embarking on the coding journey – showcasing my full stack
@@ -58,14 +58,15 @@ export default function WelcomeSection({ onClick }: { onClick: Function }) {
           <div className="flex sm:flex-row flex-col gap-2 sm:gap-6">
             <button
               onClick={downloadPdf}
-              className="text-sm sm:text-lg hover:shadow-lg hover:shadow-cyan-300/70 transition-shadow duration-500 rounded-2xl p-4  bg-cyan-400 w-full 2xl:w-96 text-white">
+              className="text-sm sm:text-lg hover:shadow-lg hover:shadow-cyan-300/70 transition-shadow duration-500 rounded-2xl p-4 bg-cyan-400 w-full 2xl:w-96 text-white">
               Download CV
             </button>
             <button
               onClick={() => {
                 onClick("contact");
               }}
-              className="  text-sm sm:text-lg font-semibold  text-cyan-500 rounded-3xl border-4  border-cyan-400 p-4 w-full 2xl:w-96 hover:shadow-inner">
+              className="contactButton relative flex items-center hover:text-backgroundLight border-2 hover:border-transparent border-cyan-400 justify-center text-sm sm:text-lg font-semibold text-cyan-500 rounded-3xl bg-backgroundLight p-4 w-full 2xl:w-96 
+      before:absolute  before:bg-gradient-to-r from-purple-600 to-teal-500 before:rounded-3xl before:w-[102%] before:h-[102%] before:opacity-0 before:transition-opacity before:duration-300 before:z-[-1] before:top-1/2 before:left-1/2 before:transform before:-translate-x-1/2 before:-translate-y-1/2 hover:before:opacity-100 hover:z-0">
               Get in touch
             </button>
           </div>

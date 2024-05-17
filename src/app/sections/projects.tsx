@@ -131,7 +131,7 @@ export default function ProjectsSection({
         Projects
       </div>
 
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-auto gap-24  h-fit  ">
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-1 gap-24  h-fit  ">
         {projectsObj.projects.map((project, index) => {
           return (
             <ProjectCard
@@ -152,7 +152,7 @@ export default function ProjectsSection({
           className=" shadow p-1 w-6 h-6  z-20 bg-backgroundLight text-primary rounded-full"
         />
 
-        <div className=" w-[60%]">
+        <div className=" w-[80%]">
           <div
             {...handlers}
             className="flex transition-transform  duration-500"

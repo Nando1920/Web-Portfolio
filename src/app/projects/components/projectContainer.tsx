@@ -40,23 +40,21 @@ export default function ProjectContainer() {
           <div className="h-16 relative flex flex-grow-0 flex-shrink-0 gap-2 overflow-auto overflow-y-hidden whitespace-nowrap">
             {projectData.images?.map((image, i) => {
               return (
-                <>
-                  <div
-                    key={i}
-                    className={`h-auto w-20 relative bg-white flex-shrink-0 after:absolute  after:h-full after:w-full ${
-                      position === i && "after:opacity-25 after:bg-black"
-                    }`}
-                    onClick={() => {
-                      setPosition(i);
-                    }}>
-                    <Image
-                      src={image}
-                      alt="project img"
-                      layout="fill"
-                      sizes="auto"
-                    />
-                  </div>
-                </>
+                <div
+                  key={i}
+                  className={`h-auto w-20 relative bg-white flex-shrink-0 after:absolute  after:h-full after:w-full ${
+                    position === i && "after:opacity-25 after:bg-black"
+                  }`}
+                  onClick={() => {
+                    setPosition(i);
+                  }}>
+                  <Image
+                    src={image}
+                    alt="project img"
+                    layout="fill"
+                    sizes="auto"
+                  />
+                </div>
               );
             })}
           </div>
@@ -76,9 +74,9 @@ export default function ProjectContainer() {
             {projectData.usefulLinks && (
               <>
                 <div className="text-md">Also view:</div>
-                {projectData?.usefulLinks.map((link) => {
+                {projectData?.usefulLinks.map((link, i) => {
                   return (
-                    <a href={link.link} className="text-md ">
+                    <a key={i + "link"} href={link.link} className="text-md ">
                       {link.text}
                     </a>
                   );

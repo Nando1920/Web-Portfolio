@@ -101,7 +101,7 @@ export default function ProjectsSection({
           <a
             href={`/projects?project=${project.name}`}
             className="text-primaryBold underline md:hidden">
-            Find out more
+            View Project
           </a>
         </div>
       </motion.div>

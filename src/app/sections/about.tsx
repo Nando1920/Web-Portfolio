@@ -5,7 +5,6 @@ import { FaCode } from "react-icons/fa";
 import skillsImage from "../../../public/aboutme.jpg";
 import experienceImage from "../../../public/exp.webp";
 import educationImage from "../../../public/education.jpg";
-import wave from "../../../public/wave.svg";
 import "../styles/aboutMe.css";
 import {
   motion,

@@ -6,9 +6,9 @@ export default function ProjectPage() {
   return (
     <>
       {" "}
-      <Navbar hideSections />
-      <section className="h-screen grid  items-center gap-16 md:grid-rows-1 md:grid-cols-3 md:justify-around">
-        <ProjectBar />
+      <Navbar hideSections returnArrow />
+      <section className="h-screen flex flex-col pt-12 items-center gap-4 md:grid-rows-1 md:grid-cols-3  md:pt-8">
+        {/* <ProjectBar /> */}
         <ProjectContainer />
       </section>
     </>

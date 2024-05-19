@@ -4,18 +4,23 @@ import "../styles/navbar.css";
 import { useEffect, useState } from "react";
 import HeaderLogo from "@/assets/img/headerLogo";
 import { useScrollContext } from "../scroll/scrollProvider";
+import { FaArrowLeft } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 export default function Navbar({
   onClick,
   hideSections,
+  returnArrow,
 }: {
   onClick?: Function;
   hideSections?: boolean;
+  returnArrow?: boolean;
 }) {
-  const { atTop, progress } = useScrollContext();
+  const { atTop } = useScrollContext();
   const [isAtTop, setIsAtTop] = useState(atTop);
   const [hidden, setHidden] = useState(true);
   const [buttonClass, setButtonClass] = useState("bar unclicked");
+  const router = useRouter();
 
   const navArray: any[] = [
     { name: "About", ref: "/home/about", scroll: "about" },
@@ -78,11 +83,23 @@ export default function Navbar({
     <>
       {!hideSections && burgerButton()}
       <nav
-        className={`flex justify-end sm:justify-between items-center px-4 py-2 sm:px-8  ${
-          !isAtTop
-            ? "shadow-lg shadow-black-100 bg-white/60 "
-            : "bg-transparent"
+        className={`flex 
+         sm: items-center px-4 py-2 sm:px-8  ${
+           !isAtTop
+             ? "shadow-lg shadow-black-100 bg-white/60 "
+             : "bg-transparent"
+         } ${
+          returnArrow ? "justify-between" : "justify-between"
         } fixed w-svw top-0 z-40 transition-shadow duration-300`}>
+        {returnArrow && (
+          <dd
+            onClick={() => {
+              router?.back();
+            }}>
+            <FaArrowLeft />
+          </dd>
+        )}
+        {!returnArrow && <div className="sm:hidden"></div>}
         <Link href={"/"} className="scale-[200%]  sm:scale-[250%]">
           <HeaderLogo />
         </Link>

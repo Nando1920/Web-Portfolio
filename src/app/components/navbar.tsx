@@ -84,7 +84,7 @@ export default function Navbar({
       {!hideSections && burgerButton()}
       <nav
         className={`flex 
-         sm: items-center px-4 py-2 sm:px-8  ${
+         sm: items-center px-4 py-2 sm:px-8 4K:px-12 4K:py-4  ${
            !isAtTop
              ? "shadow-lg shadow-black-100 bg-white/60 "
              : "bg-transparent"
@@ -104,7 +104,7 @@ export default function Navbar({
           <HeaderLogo />
         </Link>
         {!hideSections && (
-          <div className="gap-6 hidden sm:flex sm:gap-10">
+          <div className="gap-6 hidden sm:flex sm:gap-10 4K:gap-16">
             {navArray.map((item) => {
               return (
                 <div
@@ -112,7 +112,7 @@ export default function Navbar({
                     if (onClick) onClick(item.scroll);
                   }}
                   key={item.name}
-                  className="navOption sm:text-xl">
+                  className="navOption sm:text-xl 2xl:text-2xl 4K:text-3xl">
                   {item.name}
                 </div>
               );

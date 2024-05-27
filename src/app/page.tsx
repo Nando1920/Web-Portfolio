@@ -53,7 +53,7 @@ export default function Home() {
       <Navbar onClick={scrollToSection} />
       <WelcomeSection onClick={scrollToSection} />
 
-      <div className="px-4 sm:px-10 flex flex-col ">
+      <div className="px-4 sm:px-10 flex flex-col 2xl:px-[15%] ">
         <AboutSection forwardedRef={aboutRef} />
         <ProjectsSection forwardedRef={projectsormRef} />
         <ReachOutSection forwardedRef={contactFormRef} />

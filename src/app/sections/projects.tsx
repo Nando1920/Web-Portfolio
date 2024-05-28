@@ -1,22 +1,12 @@
 "use client";
-import { LegacyRef, useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { LegacyRef, useEffect, useState } from "react";
 import projectsObj from "../../assets/json/projects.json";
 import { FaChevronRight, FaCode } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import "../styles/projects.css";
 import { useSwipeable } from "react-swipeable";
-import { getProjectImg } from "../utils/utils";
-import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { CgDetailsMore } from "react-icons/cg";
-
-interface IProject {
-  name: string;
-  client: string;
-  text: string;
-  link: string;
-}
+import ProjectCard from "../components/projectCard";
+import ProjectCardWeb from "../components/projectCardWeb";
 
 export default function ProjectsSection({
   forwardedRef,
@@ -39,74 +29,6 @@ export default function ProjectsSection({
       position === 0 ? projectsObj.projects.length - 1 : position - 1
     );
   };
-
-  function ProjectCard({
-    project,
-    index,
-    transition,
-  }: {
-    project: IProject;
-    index: number;
-    transition: boolean;
-  }) {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-      target: ref,
-      offset: ["0 1", "1.33 1"],
-    });
-    const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
-    const ScaleProgress = useTransform(scrollYProgress, [0, 1], [0.5, 0.99]);
-
-    return (
-      <motion.div
-        ref={ref}
-        onClick={() => {
-          if (transition) {
-            setPosition(index);
-            setAuto(false);
-          } else {
-          }
-        }}
-        style={{
-          opacity: !transition ? opacityProgress : "none",
-          scale: !transition ? ScaleProgress : "none",
-        }}
-        className={`${
-          transition
-            ? "imageCard w-[100%]  flex-shrink-0 shadow-lg   rounded-lg overflow-hidden"
-            : "shadow-lg w-[100%] overflow-hidden scale-100 md:min-w-[300px] lg:min-w-[250px] xl:min-w-[350px] 2xl:min-w-[400px]"
-        } ${position === index && transition && "selected sm:selected"} `}>
-        <Image
-          loading="lazy"
-          src={getProjectImg(project.name)}
-          alt="temp"
-          placeholder="blur"
-          className="absolute z-[-1] bg-cover "
-        />
-        <div className=" hidden opacity-0 md:flex justify-center items-center gap-10  absolute z-[1] bg-cover transition-color duration-300  hover:bg-black hover:opacity-60  w-full h-full">
-          <Link
-            href={`/projects?project=${project.name}`}
-            className="rounded-full border-2  p-2">
-            <CgDetailsMore className="w-10 h-10  text-white" />
-          </Link>
-          <Link href={project.link} className="rounded-full border-2 p-2">
-            <FaCode className="w-10 h-10  text-white" />
-          </Link>
-        </div>
-        <div className="flex flex-col gap-1 p-4 bg-backgroundLight mt-36 rounded-t-xl h-full  ">
-          <div className=" font-bold text-xl md:text-xl">{project.name}</div>
-          <div className=" text-primary md:text-lg">{project.client}</div>
-
-          <div className="line-clamp-[8] md:hidden">{project.text}</div>
-          <a
-            href={`/projects?project=${project.name}`}
-            className="text-primaryBold underline md:hidden">
-            View Project
-          </a>
-        </div>
-      </motion.div>
-    );
-  }
 
   const handlers = useSwipeable({
     onSwipedLeft: (eventData) => setNext(true),
@@ -131,14 +53,13 @@ export default function ProjectsSection({
         Projects
       </div>
 
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-auto gap-24  h-fit  ">
+      <div className="hidden md:grid  lg:grid-cols-auto gap-16  h-fit  ">
         {projectsObj.projects.map((project, index) => {
           return (
-            <ProjectCard
+            <ProjectCardWeb
               key={project.name}
               project={project}
               index={index}
-              transition={false}
             />
           );
         })}
@@ -163,7 +84,9 @@ export default function ProjectsSection({
                   key={project.name}
                   project={project}
                   index={index}
-                  transition
+                  position={position}
+                  setAuto={setAuto}
+                  setPosition={setPosition}
                 />
               );
             })}

@@ -62,10 +62,10 @@ export default function Home() {
         <div className="sm:text-lg">Thank you for visiting, find me on</div>
         <div className="flex gap-4 sm:gap-6">
           <a href="https://www.linkedin.com/in/fernando-tamayo-ferrer-706b6113b/">
-            <CiLinkedin className="w-8 h-8 sm:w-10 sm:h-10" />
+            <CiLinkedin className="w-8 h-8 sm:w-10 sm:h-10 hover:text-secondaryBold transition-colors duration-300" />
           </a>
           <a href="https://github.com/Nando1920">
-            <FaGithub className="w-8 h-8 sm:w-10 sm:h-10" />
+            <FaGithub className="w-8 h-8 sm:w-10 sm:h-10 hover:text-secondaryBold transition-colors duration-300 " />
           </a>
         </div>
         <div className="flex flex-col justify-around w-full flex-nowrap p-4">

@@ -35,9 +35,12 @@ export default function ProjectContainer() {
           />
         </div>
       </div>
-      <div className="reltative flex flex-col  justify-center items-center">
+      <div className="reltative flex flex-col  justify-center items-center relative">
+        <div className="relative md:h-24 overflow-visible">
+          <div className="shapedividers_com-9562 h-12 md:h-full absolute w-screen -z-10"></div>
+        </div>
         {projectData.images.length > 1 && (
-          <div className="h-16 relative flex flex-grow-0 flex-shrink-0 gap-2 overflow-auto overflow-y-hidden whitespace-nowrap">
+          <div className="h-16  flex flex-grow-0 flex-shrink-0 gap-2 overflow-auto overflow-y-hidden justify-center whitespace-nowrap before:bg-primary before:w-screen before:h-full before:absolute before:-z-10">
             {projectData.images?.map((image, i) => {
               return (
                 <div
@@ -59,11 +62,8 @@ export default function ProjectContainer() {
             })}
           </div>
         )}
-        <div className="relative md:h-24 overflow-visible">
-          <div className="shapedividers_com-9562 h-12 md:h-full absolute w-screen -z-10"></div>
-        </div>
 
-        <div className="relative flex py-4 text-backgroundLight justify-center items-center before:bg-primary before:w-screen before:h-full before:absolute before:-z-10  ">
+        <div className="relative flex py-4 px-8 text-backgroundLight justify-center items-center before:bg-primary before:w-screen before:h-full before:absolute before:-z-10  ">
           <div className=" md:w-[60%]">
             <div className="text-sm">{projectData?.text}</div>
             <div className="text-md">{projectData?.client}</div>

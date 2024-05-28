@@ -25,7 +25,7 @@ export default function ProjectCardWeb({
   const inView = useInView(ref, { once: true });
   const controller = useAnimation();
 
-  const left: boolean = 2 % index === 0;
+  const isEvenIndex: boolean = 2 % index === 0;
 
   useEffect(() => {
     if (inView) {
@@ -33,18 +33,9 @@ export default function ProjectCardWeb({
     }
   }, [inView, controller]);
 
-  return (
-    <motion.div
-      ref={ref}
-      variants={{
-        hidden: { opacity: 0, x: left ? -150 : 150 },
-        visible: { opacity: 1, x: 0 },
-      }}
-      initial="hidden"
-      animate={controller}
-      transition={{ duration: 0.75, delay: 0.5 }}
-      className="bg-backgroundLight w-[700px] xl:w-[900px] h-[300px] 2xl:w-[1200px] 2xl:h-[400px]  grid grid-cols-4 rounded-xl overflow-hidden shadow-md gap-4">
-      <div className=" col-span-2 col-start-1 relative">
+  const imgContainer = () => {
+    return (
+      <div className=" relative w-1/2 ">
         <Image
           loading="lazy"
           src={getProjectImg(project.name)}
@@ -63,15 +54,47 @@ export default function ProjectCardWeb({
           </Link>
         </div>
       </div>
-      <div className="col-span-2 col-start-3 flex flex-col justify-center items-start gap-4 p-4 overflow-hidden">
+    );
+  };
+
+  const textContainer = () => {
+    return (
+      <div className=" w-1/2 flex-grow-0 flex flex-col justify-center items-start gap-4 p-4 overflow-hidden">
         <div className="flex justify-between w-full">
-          <div className="text-xl">{project.name}</div>
-          <div className="text-xl">{project.client}</div>
+          <div className="text-xl text-primary font-semibold">
+            {project.name}
+          </div>
+          <div className="text-xl font-light">{project.client}</div>
         </div>
-        <div className="text-lg text-ellipsis line-clamp-[4]">
+        <div className="text-lg text-ellipsis line-clamp-[4] font-light">
           {project.text}
         </div>
       </div>
+    );
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={{
+        hidden: { opacity: 0, x: isEvenIndex ? -150 : 150 },
+        visible: { opacity: 1, x: 0 },
+      }}
+      initial="hidden"
+      animate={controller}
+      transition={{ duration: 0.75, delay: 0.5 }}
+      className="bg-backgroundLight w-[700px] xl:w-[900px] h-[300px] 2xl:w-[1200px] 2xl:h-[400px] 4K:w-full 4K:h-[500px] flex justify-evenly rounded-xl overflow-hidden shadow-md gap-4">
+      {isEvenIndex ? (
+        <>
+          {imgContainer()}
+          {textContainer()}
+        </>
+      ) : (
+        <>
+          {textContainer()}
+          {imgContainer()}
+        </>
+      )}
     </motion.div>
   );
 }

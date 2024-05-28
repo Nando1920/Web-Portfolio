@@ -1,7 +1,6 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRef } from "react";
 import { CgDetailsMore } from "react-icons/cg";
 import { FaCode } from "react-icons/fa";
 import Image from "next/image";

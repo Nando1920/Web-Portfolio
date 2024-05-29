@@ -5,7 +5,6 @@ import { FaCode } from "react-icons/fa";
 import skillsImage from "../../../public/aboutme.jpg";
 import experienceImage from "../../../public/exp.webp";
 import educationImage from "../../../public/education.jpg";
-import wave from "../../../public/wave.svg";
 import "../styles/aboutMe.css";
 import {
   motion,
@@ -134,8 +133,8 @@ export default function AboutSection({
   return (
     <section
       ref={forwardedRef}
-      className="relative h-fit py-8 sm:py-16 lg:px-20">
-      <div className=" top-0 transform left-0 w-screen -translate-x-4 sm:-translate-x-10 h-full absolute z-[-1] bg-gradient-to-br from-secondaryBold via-secondary via-50% to-secondary" />
+      className="relative flex flex-col items-center h-fit py-8 sm:py-16 2xl:text-xl 2xl:px-12">
+      <div className="absolute top-0  w-screen h-full z-[-1] bg-gradient-to-br from-secondaryBold via-secondary to-secondary" />
       <motion.div
         ref={ref}
         variants={{
@@ -146,7 +145,7 @@ export default function AboutSection({
         animate={controller}
         transition={{ duration: 0.5, delay: 0.33 }}
         className="grid grid-rows-2 gap-2 h-full md:grid-cols-2 md:grid-rows-1 md:gap-12 md:min-h-[500px]  items-center">
-        <div className=" row-span-2 flex flex-col h-48 sm:h-[300px] xl:h-[400px]  relative aspect-auto sm:row-span-1 ">
+        <div className=" row-span-2 flex flex-col h-48 sm:h-[300px] xl:h-[400px]  4K:h-[450px]  relative aspect-auto sm:row-span-1 ">
           <Image
             src={skillsImage}
             alt="Skills Image"
@@ -180,9 +179,9 @@ export default function AboutSection({
           />
         </div>
         <div className="row-span-1 flex flex-col gap-4 text-backgroundLight min-h-[550px]:">
-          <div className="flex flex-row justify-start text-2xl w-full items-center ">
+          <div className="flex flex-row gap-4 justify-start text-2xl sm:text-3xl w-full items-center ">
             <FaCode />
-            <div className="text-2xl font-semibold ">About me</div>
+            <div className="  font-semibold ">About me</div>
           </div>
           <div>
             Hey, I&apos;m Fernando, a full-stack developer with a solid

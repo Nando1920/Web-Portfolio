@@ -154,7 +154,7 @@ export default function ReachOutSection({
       </motion.div>
       <button
         onClick={handleSubmit}
-        className="text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl px-12 py-2 sm:p-4 bg-cyan-300 sm:w-38 text-white">
+        className="w-[10%] flex justify-center text-sm hover:shadow-lg hover:shadow-cyan-300/50 transition-shadow duration-500 rounded-3xl px-12 py-2 sm:p-4 bg-cyan-300 sm:w-38 text-white">
         {loading ? (
           <AiOutlineLoading3Quarters className="animate-spin" />
         ) : (

@@ -24,21 +24,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-
-  ::-webkit-scrollbar {
-    width: 4px; /* Width of the scrollbar */
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-secondary;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-primary;
-    border-radius: 5px; /* Radius of the scrollbar thumb */
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primaryBold; /* Color of the scrollbar thumb on hover */
-  }
 }

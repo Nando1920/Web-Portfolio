@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "4K": "2000px",
+      },
       colors: {
         backgroundLight: {
           DEFAULT: "rgb(243, 249, 248)",

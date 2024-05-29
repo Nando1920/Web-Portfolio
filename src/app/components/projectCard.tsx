@@ -4,8 +4,8 @@ import Link from "next/link";
 import { CgDetailsMore } from "react-icons/cg";
 import { FaCode } from "react-icons/fa";
 import Image from "next/image";
-import { getProjectImg } from "../utils/utils";
 import { IProject } from "./projectCardWeb";
+import { getProjectImg } from "../utils/utils";
 
 export default function ProjectCard({
   project,

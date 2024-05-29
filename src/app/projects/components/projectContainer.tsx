@@ -3,6 +3,7 @@ import Image from "next/image";
 import projectsObj from "../../../assets/json/projects.json";
 import { useEffect, useState } from "react";
 import "../../styles/projectInfo.css";
+import { getSkillBadge } from "@/app/utils/utils";
 
 export default function ProjectContainer() {
   const [queryString, setQueryString] = useState("");
@@ -17,6 +18,9 @@ export default function ProjectContainer() {
   const [position, setPosition] = useState(0);
 
   const selectedProject: string | null = urlParams.get("project");
+
+  useEffect(() => {}, [selectedProject]);
+
   const projectData =
     projectsObj.projects.find((project) => {
       return project.name === selectedProject;
@@ -64,9 +68,23 @@ export default function ProjectContainer() {
         )}
 
         <div className="relative flex py-4 px-8 text-backgroundLight justify-center items-center before:bg-primary before:w-screen before:h-full before:absolute before:-z-10  ">
-          <div className=" md:w-[60%]">
+          <div className=" md:w-[60%] flex flex-col gap-4">
             <div className="text-sm">{projectData?.text}</div>
             <div className="text-md">{projectData?.client}</div>
+
+            <div className="flex gap-4 md:gap-8 justify-center ">
+              {projectData?.badges?.map((badge, index) => {
+                return (
+                  <div key={index}>
+                    {getSkillBadge({
+                      skill: badge,
+                      className:
+                        "h-6 w-6 md:h-8 md:w-8 lg:h-14 lg:w-14 4K:h-18 4K:w-18",
+                    })}{" "}
+                  </div>
+                );
+              })}
+            </div>
             <div className="text-md">{}</div>
             <a href={projectData?.link} className="text-md ">
               Visit Site
@@ -74,7 +92,7 @@ export default function ProjectContainer() {
             {projectData.usefulLinks && (
               <>
                 <div className="text-md">Also view:</div>
-                {projectData?.usefulLinks.map((link, i) => {
+                {projectData?.usefulLinks?.map((link, i) => {
                   return (
                     <a key={i + "link"} href={link.link} className="text-md ">
                       {link.text}

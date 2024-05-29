@@ -83,7 +83,11 @@ export default function ProjectCardWeb({
       initial="hidden"
       animate={controller}
       transition={{ duration: 0.75, delay: 0.5 }}
-      className="bg-backgroundLight w-[700px] xl:w-[900px] h-[300px] 2xl:w-[1200px] 2xl:h-[400px] 4K:w-full 4K:h-[500px] flex justify-evenly rounded-xl overflow-hidden shadow-md gap-4">
+      whileHover={{
+        rotate: isEvenIndex ? -1 : 1,
+        transition: { duration: 0.2 }, // Specify separate transition for hover effect
+      }} // This adds the rotation on hover
+      className=" bg-backgroundLight w-[700px] xl:w-[900px] h-[300px] 2xl:w-[1200px] 2xl:h-[400px] 4K:w-full 4K:h-[500px] flex justify-evenly rounded-xl overflow-hidden shadow-md gap-4 ">
       {isEvenIndex ? (
         <>
           {imgContainer()}

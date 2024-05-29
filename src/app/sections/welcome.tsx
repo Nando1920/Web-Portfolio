@@ -3,8 +3,8 @@ import "../styles/welcome.css";
 import Image from "next/image";
 import Me from "/public/me.jpg";
 import { TbArrowBadgeDown } from "react-icons/tb";
-import { downloadPdf } from "../utils/utils";
 import { motion } from "framer-motion";
+import { downloadPdf } from "../utils/utils";
 
 export default function WelcomeSection({ onClick }: { onClick: Function }) {
   return (

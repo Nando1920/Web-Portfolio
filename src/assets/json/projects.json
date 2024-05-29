@@ -16,6 +16,16 @@
           "link": "https://apps.apple.com/gb/app/eventr-team/id6466819926",
           "text": "App Store"
         }
+      ],
+      "badges": [
+        "React",
+        "Typescript",
+        "HTML",
+        "CSS",
+        "MySQL",
+        "Capacitor",
+        "Node",
+        "PHP"
       ]
     },
 
@@ -26,7 +36,8 @@
       "link": "https://github.com/Nando1920/Web-Portfolio",
       "images": [
         "https://fernando-portfolio-bucket.s3.eu-north-1.amazonaws.com/Portfolio.png"
-      ]
+      ],
+      "badges": ["Next", "Tailwind", "Typescript", "Node", "HTML", "CSS"]
     }
   ]
 }

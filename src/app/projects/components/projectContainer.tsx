@@ -17,6 +17,7 @@ export default function ProjectContainer() {
 
   const urlParams = new URLSearchParams(queryString);
   const [position, setPosition] = useState(0);
+  console.log(urlParams.get("project"));
 
   const selectedProject: string | null = urlParams.get("project");
 
@@ -29,13 +30,13 @@ export default function ProjectContainer() {
   }, [selectedProject, projectsObj.projects]);
 
   return (
-    <div className="flex flex-col   items-center w-[90%] h-full">
+    <div className="flex flex-col items-center w-[90%] h-full">
       <div className="relative flex flex-col items-center w-[95%] h-fit">
         <div className="flex flex-col justify-center md:gap-12 w-full items-center relative ">
           <div className="text-xl md:text-3xl 4K:text-4xl w-[80%] font-semibold">
             {projectData?.name}
           </div>
-          <div className=" bg-white p-2 relative w-full h-[30vh] md:h-[40vh] md:w-[60%] 4K:w-[80%] ">
+          <div className=" bg-white p-2 relative w-full h-[30vh] md:h-[40vh] md:w-[55%]  4K:w-[70%] 4K:h-[50vh] ">
             <Image
               src={projectData.images[position]}
               alt="Header Img"
@@ -44,7 +45,7 @@ export default function ProjectContainer() {
             />
           </div>
         </div>
-        <div className="shapedividers_com-9562 h-12  w-screen -z-10 "></div>
+        <div className="shapedividers_com-9562 h-12 md:h-24 4K:h-36 w-screen -z-10 "></div>
       </div>
 
       <div className=" flex flex-col justify-center  h-full">
@@ -74,7 +75,7 @@ export default function ProjectContainer() {
           )}
 
           <div className=" flex py-4 px-8 text-backgroundLight justify-center items-center  ">
-            <div className=" md:w-[60%] flex flex-col gap-4 4K:gap-8">
+            <div className=" md:w-[50%] flex flex-col gap-4 4K:gap-8">
               <div className="text-sm 4K:text-2xl">{projectData?.text}</div>
               <div className="flex justify-between items-center font-semibold">
                 <div className="text-md 4K:text-2xl">{projectData?.client}</div>
@@ -100,7 +101,9 @@ export default function ProjectContainer() {
 
               {projectData.usefulLinks && (
                 <>
-                  <div className="text-md">Also view:</div>
+                  <div className="text-md md:text-lg 4K:text-2xl">
+                    Also view:
+                  </div>
                   {projectData?.usefulLinks.stores && (
                     <>
                       <StoreBadges {...projectData.usefulLinks.stores} />

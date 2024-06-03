@@ -3,7 +3,7 @@
     {
       "client": "Soft Pauer",
       "name": "EventR",
-      "text": "EventR is the latest App from Soft Pauer, which is set to completely change the way individuals and companies manage their corporate and personal travel and event plans. The EventR app provides a simple user experience, where users can add their travel plans, including flights, hire cars, hotels and events, once your travel plans have been added to the app, they can then be shared with your travel partners or family, all those important details such as flight numbers and hotel bookings are then displayed on a timeline to all your fellow travellers.",
+      "text": "EventR, Soft Pauer's latest app, revolutionizes travel and event management for individuals and companies. Users easily input travel details like flights, car rentals, hotels, and events. Once added, plans can be shared with partners or family. Key details such as flight numbers and hotel bookings are neatly displayed on a shared timeline for all travelers.",
       "link": "https://eventr.softpauer.com/",
       "images": [
         "https://eventr.softpauer.com/wp-content/uploads/2024/02/Hero-1-1000x673.png",
@@ -11,33 +11,40 @@
         "https://eventr.softpauer.com/wp-content/uploads/2024/02/775shots_so-1000x750.png",
         "https://fernando-portfolio-bucket.s3.eu-north-1.amazonaws.com/Ad+-+Relief.png"
       ],
-      "usefulLinks": [
-        {
-          "link": "https://apps.apple.com/gb/app/eventr-team/id6466819926",
-          "text": "App Store"
+      "usefulLinks": {
+        "stores": {
+          "appStore": "https://apps.apple.com/gb/app/eventr-team/id6466819926",
+          "playStore": "https://play.google.com/store/apps/details?id=com.softpauer.eventr&pli=1"
         }
-      ],
+      },
       "badges": [
-        "React",
-        "Typescript",
-        "HTML",
-        "CSS",
-        "MySQL",
-        "Capacitor",
-        "Node",
-        "PHP"
+        { "icon": "React", "colour": "cyan" },
+        { "icon": "Typescript", "colour": "blue" },
+        { "icon": "HTML", "colour": "orange" },
+        { "icon": "CSS", "colour": "blue" },
+        { "icon": "MySQL", "colour": "blue" },
+        { "icon": "Capacitor", "colour": "blue" },
+        { "icon": "Node", "colour": "green" },
+        { "icon": "PHP", "colour": "purple" }
       ]
     },
 
     {
       "client": "Personal",
       "name": "Portfolio",
-      "text": "My web portfolio built with Next.js showcases my skills and projects in an engaging and responsive manner. Leveraging the power of Next.js and its server-side rendering capabilities, I've crafted a dynamic platform that loads swiftly and delivers a seamless user experience. With a focus on customization and performance, this project reflects my dedication to quality and innovation in web development.",
+      "text": "My Next.js web portfolio presents my skills and projects dynamically and responsively. Utilizing Next.js' server-side rendering, I've designed a platform that loads quickly and offers a smooth user journey. Prioritizing customization and performance, this project embodies my commitment to excellence and creativity in web development.",
       "link": "https://github.com/Nando1920/Web-Portfolio",
       "images": [
         "https://fernando-portfolio-bucket.s3.eu-north-1.amazonaws.com/Portfolio.png"
       ],
-      "badges": ["Next", "Tailwind", "Typescript", "Node", "HTML", "CSS"]
+      "badges": [
+        { "icon": "Next", "colour": "black" },
+        { "icon": "Tailwind", "colour": "cyan" },
+        { "icon": "Typescript", "colour": "blue" },
+        { "icon": "HTML", "colour": "orange" },
+        { "icon": "CSS", "colour": "blue" },
+        { "icon": "Node", "colour": "green" }
+      ]
     }
   ]
 }

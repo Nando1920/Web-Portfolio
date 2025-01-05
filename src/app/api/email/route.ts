@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   const { name, email, message } = await request.json();
-  const myEmail = process.env.NEXT_PUBLIC_EMAIL_USERNAME;
+  const myEmail: any = process.env.NEXT_PUBLIC_EMAIL_USERNAME;
   const password = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
 
   const transporter = nodemailer.createTransport({
@@ -27,13 +27,13 @@ export async function POST(request: NextRequest) {
         `,
     });
 
-    if (resp.accepted.includes(email)) {
+    if (resp.accepted.includes(myEmail)) {
       await transporter.sendMail({
         from: myEmail,
         to: email,
         subject: `Contact confirmaton`,
         html: `
-          <p>Thanks ${name} </p>
+          <p>Thank you for getting in touch ${name}, we will get back to you as soon as possible! </p>
           `,
       });
     }
